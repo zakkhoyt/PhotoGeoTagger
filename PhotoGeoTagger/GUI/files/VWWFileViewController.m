@@ -7,14 +7,13 @@
 //
 
 #import "VWWFileViewController.h"
-
+#import "VWWContentItem.h"
 
 
 @interface VWWFileViewController ()
-@property (strong) IBOutlet NSOutlineView *outlineView;
+@property (strong) IBOutlet NSTableView *tableView;
 @property (strong) IBOutlet NSButton *browseButton;
-@property (strong) NSMutableArray *directories;
-@property (strong) NSMutableArray *files;
+@property (strong) NSMutableArray *contents;
 @property (strong) IBOutlet NSTextField *pathLabel;
 @end
 
@@ -22,23 +21,17 @@
 
 @implementation VWWFileViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [self seachForFilesInDirectory:@"/Users/zakkhoyt/Pictures"];
     }
-    
-    NSLog(@"files: %@", self.files);
-    
     return self;
 }
 
 
 
 -(void)seachForFilesInDirectory:(NSString*)path{
-    self.directories = [@[]mutableCopy];
-    self.files = [@[]mutableCopy];
+    self.contents = [@[]mutableCopy];
     [self getDirectoryAtPath:path];
 }
 
@@ -49,23 +42,7 @@
     NSArray *contents = [fileManager contentsOfDirectoryAtPath:path error:&error];
     
     NSAssert(contents, @"error getting contents");
-    
-    
-    
-    if ([contents count] > 0)
-    {
-        NSPredicate *filter = [NSPredicate predicateWithFormat:@"self ENDSWITH '.jpg'"];
-        NSArray *pngFiles = [contents filteredArrayUsingPredicate:filter];
-        if(pngFiles.count) {
-            [self.files addObjectsFromArray:pngFiles];
-            //            NSLog(@"jpg files: %@", pngFiles);
-        }
-        
-    }
-    
-    
-    
-    
+
     for(NSInteger index = 0; index < contents.count; index++){
         
         NSString *contentDetailsPath = [NSString stringWithFormat:@"%@/%@", path, contents[index]];
@@ -75,33 +52,106 @@
         
         NSAssert(contents, @"error getting contents");
         
-        //NSString *type = contentsAttributes[NSFileType];
-        //        if([type isEqualToString:NSFileTypeRegular]){
-        //            [self.files addObject:contentDetailsPath];
-        //        }
+        BOOL isValidType = NO;
         
-        //        if([type isEqualToString:NSFileTypeDirectory]){
-        //            [self.directories addObject:contentDetailsPath];
-        //            [self getDirectoryAtPath:contentDetailsPath];
-        //        }
+        if([contentsAttributes[NSFileType] isEqualToString:NSFileTypeRegular]){
+            if([[contentDetailsPath pathExtension] compare:@"jpg" options:NSCaseInsensitiveSearch] == NSOrderedSame ||
+               [[contentDetailsPath pathExtension] compare:@"jpeg" options:NSCaseInsensitiveSearch] == NSOrderedSame |
+               [[contentDetailsPath pathExtension] compare:@"bmp" options:NSCaseInsensitiveSearch] == NSOrderedSame ||
+               [[contentDetailsPath pathExtension] compare:@"png" options:NSCaseInsensitiveSearch] == NSOrderedSame){
+                isValidType = YES;
+            }
+        }
+        else if([contentsAttributes[NSFileType] isEqualToString:NSFileTypeDirectory]){
+            isValidType = YES;
+        }
+        
+        if(isValidType == YES){
+            VWWContentItem *item = [VWWContentItem new];
+            item.isDirectory = contentsAttributes[NSFileType] == NSFileTypeDirectory ? YES : NO;
+            item.path = contentDetailsPath;
+            item.displayName = [contentDetailsPath lastPathComponent];
+            item.extension = [contentDetailsPath pathExtension];
+            [self.contents addObject:item];
+        }
+        
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
+   
 }
+
+
 
 
 #pragma mark IBActions
 
 - (IBAction)browseButtonAction:(id)sender {
-    //Display dir broswe dialog
+    NSOpenPanel *openPanel = [NSOpenPanel openPanel];
+    openPanel.canChooseDirectories = YES;
+    openPanel.canChooseFiles = NO;
+    
+    
+    __weak VWWFileViewController *weakSelf = self;
+    [openPanel beginWithCompletionHandler:^(NSInteger result) {
+        NSString *dir = openPanel.directoryURL.description;
+        dir = [dir stringByReplacingOccurrencesOfString:@"file://localhost" withString:@""];
+        weakSelf.pathLabel.stringValue = dir;
+        [weakSelf seachForFilesInDirectory:dir];
+        [self.tableView reloadData];
+    }];
+ }
+
+
+
+#pragma mark Implements NSTableViewDataSource
+- (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+    NSTableCellView *cellView = [tableView makeViewWithIdentifier:tableColumn.identifier owner:self];
+    if( [tableColumn.identifier isEqualToString:@"titleColumn"] )
+    {
+        VWWContentItem *item = self.contents[row];
+        if(item.isDirectory){
+            cellView.imageView.image = [NSImage imageNamed:@"folder.png"];
+        }
+        else{
+            cellView.imageView.image = [NSImage imageNamed:@"photo.png"];
+        }
+        cellView.textField.stringValue = item.displayName;
+    
+        return cellView;
+    }
+    return cellView;
 }
 
 
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
+    return [self.contents count];
+}
+
+#pragma mark Implements NSTableViewDelegate
+- (void)tableView:(NSTableView *)tableView didClickTableColumn:(NSTableColumn *)tableColumn{
+        
+//    CGImageSourceCreateWithData(someCFDataRef, nil);
+//    CFDictionaryRef dictRef = CGImageSourceCopyPropertiesAtIndex(imgSource, 0, nil);
+}
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

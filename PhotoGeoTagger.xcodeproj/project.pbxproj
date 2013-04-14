@@ -24,6 +24,9 @@
 		C692B2B2171B580500D46E14 /* VWWFileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C692B2B0171B580500D46E14 /* VWWFileViewController.xib */; };
 		C692B2B6171B58FB00D46E14 /* VWWMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C692B2B4171B58FB00D46E14 /* VWWMapViewController.m */; };
 		C692B2B7171B58FB00D46E14 /* VWWMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C692B2B5171B58FB00D46E14 /* VWWMapViewController.xib */; };
+		C692B2BE171B5FF900D46E14 /* VWWContentItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C692B2BD171B5FF900D46E14 /* VWWContentItem.m */; };
+		C692B2C1171B650100D46E14 /* folder.png in Resources */ = {isa = PBXBuildFile; fileRef = C692B2C0171B650100D46E14 /* folder.png */; };
+		C692B2C3171B675E00D46E14 /* photo.png in Resources */ = {isa = PBXBuildFile; fileRef = C692B2C2171B675E00D46E14 /* photo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +80,10 @@
 		C692B2B3171B58FA00D46E14 /* VWWMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VWWMapViewController.h; sourceTree = "<group>"; };
 		C692B2B4171B58FB00D46E14 /* VWWMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VWWMapViewController.m; sourceTree = "<group>"; };
 		C692B2B5171B58FB00D46E14 /* VWWMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VWWMapViewController.xib; sourceTree = "<group>"; };
+		C692B2BC171B5FF900D46E14 /* VWWContentItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VWWContentItem.h; sourceTree = "<group>"; };
+		C692B2BD171B5FF900D46E14 /* VWWContentItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VWWContentItem.m; sourceTree = "<group>"; };
+		C692B2C0171B650100D46E14 /* folder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = folder.png; sourceTree = "<group>"; };
+		C692B2C2171B675E00D46E14 /* photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,7 +153,9 @@
 		C692B266171B536500D46E14 /* PhotoGeoTagger */ = {
 			isa = PBXGroup;
 			children = (
-				C692B29A171B545A00D46E14 /* GUI */,
+				C692B2BF171B650100D46E14 /* images */,
+				C692B2BB171B5FF900D46E14 /* models */,
+				C692B29A171B545A00D46E14 /* controllers */,
 				C692B267171B536500D46E14 /* Supporting Files */,
 			);
 			path = PhotoGeoTagger;
@@ -183,13 +192,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		C692B29A171B545A00D46E14 /* GUI */ = {
+		C692B29A171B545A00D46E14 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
 				C692B2A7171B546300D46E14 /* AppDelegate */,
 				C692B29B171B545A00D46E14 /* files */,
 				C692B29F171B545A00D46E14 /* map */,
 			);
+			name = controllers;
 			path = GUI;
 			sourceTree = "<group>";
 		};
@@ -221,6 +231,25 @@
 				C692B275171B536600D46E14 /* MainMenu.xib */,
 			);
 			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		C692B2BB171B5FF900D46E14 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				C692B2BC171B5FF900D46E14 /* VWWContentItem.h */,
+				C692B2BD171B5FF900D46E14 /* VWWContentItem.m */,
+			);
+			name = models;
+			path = model;
+			sourceTree = "<group>";
+		};
+		C692B2BF171B650100D46E14 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				C692B2C2171B675E00D46E14 /* photo.png */,
+				C692B2C0171B650100D46E14 /* folder.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,6 +330,8 @@
 				C692B277171B536600D46E14 /* MainMenu.xib in Resources */,
 				C692B2B2171B580500D46E14 /* VWWFileViewController.xib in Resources */,
 				C692B2B7171B58FB00D46E14 /* VWWMapViewController.xib in Resources */,
+				C692B2C1171B650100D46E14 /* folder.png in Resources */,
+				C692B2C3171B675E00D46E14 /* photo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +370,7 @@
 				C692B274171B536500D46E14 /* VWWAppDelegate.m in Sources */,
 				C692B2B1171B580500D46E14 /* VWWFileViewController.m in Sources */,
 				C692B2B6171B58FB00D46E14 /* VWWMapViewController.m in Sources */,
+				C692B2BE171B5FF900D46E14 /* VWWContentItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
