@@ -11,14 +11,14 @@
 
 
 @interface VWWFileViewController ()
-
-
 @property (strong) IBOutlet NSOutlineView *outlineView;
-
-
+@property (strong) IBOutlet NSButton *browseButton;
 @property (strong) NSMutableArray *directories;
 @property (strong) NSMutableArray *files;
+@property (strong) IBOutlet NSTextField *pathLabel;
 @end
+
+
 
 @implementation VWWFileViewController
 
@@ -43,11 +43,11 @@
 }
 
 -(void)getDirectoryAtPath:(NSString*)path{
-
+    
     NSError *error;
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSArray *contents = [fileManager contentsOfDirectoryAtPath:path error:&error];
-
+    
     NSAssert(contents, @"error getting contents");
     
     
@@ -58,7 +58,7 @@
         NSArray *pngFiles = [contents filteredArrayUsingPredicate:filter];
         if(pngFiles.count) {
             [self.files addObjectsFromArray:pngFiles];
-//            NSLog(@"jpg files: %@", pngFiles);
+            //            NSLog(@"jpg files: %@", pngFiles);
         }
         
     }
@@ -67,35 +67,41 @@
     
     
     for(NSInteger index = 0; index < contents.count; index++){
-
+        
         NSString *contentDetailsPath = [NSString stringWithFormat:@"%@/%@", path, contents[index]];
         contentDetailsPath = [contentDetailsPath stringByReplacingOccurrencesOfString:@"//" withString:@"/"];
-
+        
         NSDictionary *contentsAttributes = [fileManager attributesOfItemAtPath:contentDetailsPath error:&error];
-
-        NSAssert(contents, @"error getting contents");        
-    
-        NSString *type = contentsAttributes[NSFileType];
-//        if([type isEqualToString:NSFileTypeRegular]){
-//            [self.files addObject:contentDetailsPath];
-//        }
-
-//        if([type isEqualToString:NSFileTypeDirectory]){
-//            [self.directories addObject:contentDetailsPath];
-//            [self getDirectoryAtPath:contentDetailsPath];
-//        }
+        
+        NSAssert(contents, @"error getting contents");
+        
+        //NSString *type = contentsAttributes[NSFileType];
+        //        if([type isEqualToString:NSFileTypeRegular]){
+        //            [self.files addObject:contentDetailsPath];
+        //        }
+        
+        //        if([type isEqualToString:NSFileTypeDirectory]){
+        //            [self.directories addObject:contentDetailsPath];
+        //            [self getDirectoryAtPath:contentDetailsPath];
+        //        }
     }
     
     
-
     
     
-
+    
+    
     
     
     
 }
 
+
+#pragma mark IBActions
+
+- (IBAction)browseButtonAction:(id)sender {
+    //Display dir broswe dialog
+}
 
 
 @end

@@ -20,10 +20,10 @@
 		C692B295171B53F300D46E14 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C692B294171B53F300D46E14 /* MapKit.framework */; };
 		C692B297171B540100D46E14 /* MapKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C692B294171B53F300D46E14 /* MapKit.framework */; };
 		C692B299171B540D00D46E14 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C692B298171B540D00D46E14 /* CoreLocation.framework */; };
-		C692B2A3171B545A00D46E14 /* VWWFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C692B29D171B545A00D46E14 /* VWWFileViewController.m */; };
-		C692B2A4171B545A00D46E14 /* VWWFileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C692B29E171B545A00D46E14 /* VWWFileViewController.xib */; };
-		C692B2A5171B545A00D46E14 /* VWWMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C692B2A1171B545A00D46E14 /* VWWMapViewController.m */; };
-		C692B2A6171B545A00D46E14 /* VWWMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C692B2A2171B545A00D46E14 /* VWWMapViewController.xib */; };
+		C692B2B1171B580500D46E14 /* VWWFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C692B2AF171B580500D46E14 /* VWWFileViewController.m */; };
+		C692B2B2171B580500D46E14 /* VWWFileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C692B2B0171B580500D46E14 /* VWWFileViewController.xib */; };
+		C692B2B6171B58FB00D46E14 /* VWWMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C692B2B4171B58FB00D46E14 /* VWWMapViewController.m */; };
+		C692B2B7171B58FB00D46E14 /* VWWMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C692B2B5171B58FB00D46E14 /* VWWMapViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,12 +71,12 @@
 		C692B28A171B536600D46E14 /* PhotoGeoTaggerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoGeoTaggerTests.m; sourceTree = "<group>"; };
 		C692B294171B53F300D46E14 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = PhotoGeoTagger/third_party/MapKit.framework; sourceTree = "<group>"; };
 		C692B298171B540D00D46E14 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		C692B29C171B545A00D46E14 /* VWWFileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VWWFileViewController.h; sourceTree = "<group>"; };
-		C692B29D171B545A00D46E14 /* VWWFileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VWWFileViewController.m; sourceTree = "<group>"; };
-		C692B29E171B545A00D46E14 /* VWWFileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VWWFileViewController.xib; sourceTree = "<group>"; };
-		C692B2A0171B545A00D46E14 /* VWWMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VWWMapViewController.h; sourceTree = "<group>"; };
-		C692B2A1171B545A00D46E14 /* VWWMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VWWMapViewController.m; sourceTree = "<group>"; };
-		C692B2A2171B545A00D46E14 /* VWWMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VWWMapViewController.xib; sourceTree = "<group>"; };
+		C692B2AE171B580500D46E14 /* VWWFileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VWWFileViewController.h; sourceTree = "<group>"; };
+		C692B2AF171B580500D46E14 /* VWWFileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VWWFileViewController.m; sourceTree = "<group>"; };
+		C692B2B0171B580500D46E14 /* VWWFileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VWWFileViewController.xib; sourceTree = "<group>"; };
+		C692B2B3171B58FA00D46E14 /* VWWMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VWWMapViewController.h; sourceTree = "<group>"; };
+		C692B2B4171B58FB00D46E14 /* VWWMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VWWMapViewController.m; sourceTree = "<group>"; };
+		C692B2B5171B58FB00D46E14 /* VWWMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VWWMapViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,9 +196,9 @@
 		C692B29B171B545A00D46E14 /* files */ = {
 			isa = PBXGroup;
 			children = (
-				C692B29C171B545A00D46E14 /* VWWFileViewController.h */,
-				C692B29D171B545A00D46E14 /* VWWFileViewController.m */,
-				C692B29E171B545A00D46E14 /* VWWFileViewController.xib */,
+				C692B2AE171B580500D46E14 /* VWWFileViewController.h */,
+				C692B2AF171B580500D46E14 /* VWWFileViewController.m */,
+				C692B2B0171B580500D46E14 /* VWWFileViewController.xib */,
 			);
 			path = files;
 			sourceTree = "<group>";
@@ -206,9 +206,9 @@
 		C692B29F171B545A00D46E14 /* map */ = {
 			isa = PBXGroup;
 			children = (
-				C692B2A0171B545A00D46E14 /* VWWMapViewController.h */,
-				C692B2A1171B545A00D46E14 /* VWWMapViewController.m */,
-				C692B2A2171B545A00D46E14 /* VWWMapViewController.xib */,
+				C692B2B3171B58FA00D46E14 /* VWWMapViewController.h */,
+				C692B2B4171B58FB00D46E14 /* VWWMapViewController.m */,
+				C692B2B5171B58FB00D46E14 /* VWWMapViewController.xib */,
 			);
 			path = map;
 			sourceTree = "<group>";
@@ -299,8 +299,8 @@
 				C692B26B171B536500D46E14 /* InfoPlist.strings in Resources */,
 				C692B271171B536500D46E14 /* Credits.rtf in Resources */,
 				C692B277171B536600D46E14 /* MainMenu.xib in Resources */,
-				C692B2A4171B545A00D46E14 /* VWWFileViewController.xib in Resources */,
-				C692B2A6171B545A00D46E14 /* VWWMapViewController.xib in Resources */,
+				C692B2B2171B580500D46E14 /* VWWFileViewController.xib in Resources */,
+				C692B2B7171B58FB00D46E14 /* VWWMapViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,8 +337,8 @@
 			files = (
 				C692B26D171B536500D46E14 /* main.m in Sources */,
 				C692B274171B536500D46E14 /* VWWAppDelegate.m in Sources */,
-				C692B2A3171B545A00D46E14 /* VWWFileViewController.m in Sources */,
-				C692B2A5171B545A00D46E14 /* VWWMapViewController.m in Sources */,
+				C692B2B1171B580500D46E14 /* VWWFileViewController.m in Sources */,
+				C692B2B6171B58FB00D46E14 /* VWWMapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,6 +537,7 @@
 				C692B290171B536600D46E14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C692B291171B536600D46E14 /* Build configuration list for PBXNativeTarget "PhotoGeoTaggerTests" */ = {
 			isa = XCConfigurationList;
@@ -545,6 +546,7 @@
 				C692B293171B536600D46E14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

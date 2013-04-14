@@ -11,7 +11,7 @@
 #import "VWWFileViewController.h"
 
 @interface VWWAppDelegate ()
-@property (strong) IBOutlet VWWMapViewController *VWWMapViewController;
+@property (strong) IBOutlet VWWMapViewController *mapViewController;
 @property (strong) IBOutlet VWWFileViewController *fileViewController;
 @end
 
@@ -20,13 +20,13 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     
-    self.VWWMapViewController = [[VWWMapViewController alloc]initWithNibName:@"VWWMapViewController" bundle:nil];
-    [self.window.contentView addSubview:self.VWWMapViewController.view];
-    self.VWWMapViewController.view.frame = [self leftHalf];
+    self.mapViewController = [[VWWMapViewController alloc]initWithNibName:@"VWWMapViewController" bundle:nil];
+    [self.window.contentView addSubview:self.mapViewController.view];
+    self.mapViewController.view.frame = [self rightHalf];
     
     self.fileViewController = [[VWWFileViewController alloc]initWithNibName:@"VWWFileViewController" bundle:nil];
-    [self.window.contentView addSubview:self.VWWMapViewController.view];
-    self.VWWMapViewController.view.frame = [self rightHalf];
+    [self.window.contentView addSubview:self.fileViewController.view];
+    self.fileViewController.view.frame = [self leftHalf];
     
     
     [NSApp activateIgnoringOtherApps:YES];

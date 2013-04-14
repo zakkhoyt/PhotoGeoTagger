@@ -12,13 +12,10 @@
 #import <CoreLocation/CoreLocation.h>
 
 @interface VWWMapViewController () <NSTextFieldDelegate, CLLocationManagerDelegate, MKMapViewDelegate>
-
-
 @property (strong) IBOutlet MKMapView *mapView;
 @property (strong) IBOutlet NSTextField *mapTextField;
 @property (strong) IBOutlet NSTextField *longitudeTextField;
 @property (strong) IBOutlet NSTextField *lattitudeTextField;
-
 @end
 
 @implementation VWWMapViewController
@@ -57,14 +54,14 @@
 //        locationManager.distanceFilter = kCLDistanceFilterNone;
 //        [locationManager startUpdatingLocation];
 //    }
-//
-//
+//    
+//    
 //    CLLocation *location = [locationManager location];
 //    CLLocationCoordinate2D coordinate = [location coordinate];
-//
+//    
 //    NSString *str=[[NSString alloc] initWithFormat:@" latitude:%f longitude:%f",coordinate.latitude,coordinate.longitude];
 //    NSLog(@"%@",str);
-//
+//        
 //}
 
 
