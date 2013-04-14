@@ -1,0 +1,468 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C692B261171B536500D46E14 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C692B260171B536500D46E14 /* Cocoa.framework */; };
+		C692B26B171B536500D46E14 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C692B269171B536500D46E14 /* InfoPlist.strings */; };
+		C692B26D171B536500D46E14 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C692B26C171B536500D46E14 /* main.m */; };
+		C692B271171B536500D46E14 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C692B26F171B536500D46E14 /* Credits.rtf */; };
+		C692B274171B536500D46E14 /* VWWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C692B273171B536500D46E14 /* VWWAppDelegate.m */; };
+		C692B277171B536600D46E14 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C692B275171B536600D46E14 /* MainMenu.xib */; };
+		C692B27F171B536600D46E14 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C692B27E171B536600D46E14 /* SenTestingKit.framework */; };
+		C692B280171B536600D46E14 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C692B260171B536500D46E14 /* Cocoa.framework */; };
+		C692B288171B536600D46E14 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C692B286171B536600D46E14 /* InfoPlist.strings */; };
+		C692B28B171B536600D46E14 /* PhotoGeoTaggerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C692B28A171B536600D46E14 /* PhotoGeoTaggerTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C692B281171B536600D46E14 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C692B255171B536500D46E14 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C692B25C171B536500D46E14;
+			remoteInfo = PhotoGeoTagger;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C692B25D171B536500D46E14 /* PhotoGeoTagger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoGeoTagger.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C692B260171B536500D46E14 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		C692B263171B536500D46E14 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		C692B264171B536500D46E14 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		C692B265171B536500D46E14 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C692B268171B536500D46E14 /* PhotoGeoTagger-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PhotoGeoTagger-Info.plist"; sourceTree = "<group>"; };
+		C692B26A171B536500D46E14 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C692B26C171B536500D46E14 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C692B26E171B536500D46E14 /* PhotoGeoTagger-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PhotoGeoTagger-Prefix.pch"; sourceTree = "<group>"; };
+		C692B270171B536500D46E14 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		C692B272171B536500D46E14 /* VWWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VWWAppDelegate.h; sourceTree = "<group>"; };
+		C692B273171B536500D46E14 /* VWWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VWWAppDelegate.m; sourceTree = "<group>"; };
+		C692B276171B536600D46E14 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		C692B27D171B536600D46E14 /* PhotoGeoTaggerTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoGeoTaggerTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C692B27E171B536600D46E14 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		C692B285171B536600D46E14 /* PhotoGeoTaggerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PhotoGeoTaggerTests-Info.plist"; sourceTree = "<group>"; };
+		C692B287171B536600D46E14 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C692B289171B536600D46E14 /* PhotoGeoTaggerTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoGeoTaggerTests.h; sourceTree = "<group>"; };
+		C692B28A171B536600D46E14 /* PhotoGeoTaggerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoGeoTaggerTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C692B25A171B536500D46E14 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C692B261171B536500D46E14 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C692B279171B536600D46E14 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C692B27F171B536600D46E14 /* SenTestingKit.framework in Frameworks */,
+				C692B280171B536600D46E14 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C692B254171B536500D46E14 = {
+			isa = PBXGroup;
+			children = (
+				C692B266171B536500D46E14 /* PhotoGeoTagger */,
+				C692B283171B536600D46E14 /* PhotoGeoTaggerTests */,
+				C692B25F171B536500D46E14 /* Frameworks */,
+				C692B25E171B536500D46E14 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C692B25E171B536500D46E14 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C692B25D171B536500D46E14 /* PhotoGeoTagger.app */,
+				C692B27D171B536600D46E14 /* PhotoGeoTaggerTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C692B25F171B536500D46E14 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C692B260171B536500D46E14 /* Cocoa.framework */,
+				C692B27E171B536600D46E14 /* SenTestingKit.framework */,
+				C692B262171B536500D46E14 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C692B262171B536500D46E14 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C692B263171B536500D46E14 /* AppKit.framework */,
+				C692B264171B536500D46E14 /* CoreData.framework */,
+				C692B265171B536500D46E14 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		C692B266171B536500D46E14 /* PhotoGeoTagger */ = {
+			isa = PBXGroup;
+			children = (
+				C692B272171B536500D46E14 /* VWWAppDelegate.h */,
+				C692B273171B536500D46E14 /* VWWAppDelegate.m */,
+				C692B275171B536600D46E14 /* MainMenu.xib */,
+				C692B267171B536500D46E14 /* Supporting Files */,
+			);
+			path = PhotoGeoTagger;
+			sourceTree = "<group>";
+		};
+		C692B267171B536500D46E14 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C692B268171B536500D46E14 /* PhotoGeoTagger-Info.plist */,
+				C692B269171B536500D46E14 /* InfoPlist.strings */,
+				C692B26C171B536500D46E14 /* main.m */,
+				C692B26E171B536500D46E14 /* PhotoGeoTagger-Prefix.pch */,
+				C692B26F171B536500D46E14 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C692B283171B536600D46E14 /* PhotoGeoTaggerTests */ = {
+			isa = PBXGroup;
+			children = (
+				C692B289171B536600D46E14 /* PhotoGeoTaggerTests.h */,
+				C692B28A171B536600D46E14 /* PhotoGeoTaggerTests.m */,
+				C692B284171B536600D46E14 /* Supporting Files */,
+			);
+			path = PhotoGeoTaggerTests;
+			sourceTree = "<group>";
+		};
+		C692B284171B536600D46E14 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C692B285171B536600D46E14 /* PhotoGeoTaggerTests-Info.plist */,
+				C692B286171B536600D46E14 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C692B25C171B536500D46E14 /* PhotoGeoTagger */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C692B28E171B536600D46E14 /* Build configuration list for PBXNativeTarget "PhotoGeoTagger" */;
+			buildPhases = (
+				C692B259171B536500D46E14 /* Sources */,
+				C692B25A171B536500D46E14 /* Frameworks */,
+				C692B25B171B536500D46E14 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PhotoGeoTagger;
+			productName = PhotoGeoTagger;
+			productReference = C692B25D171B536500D46E14 /* PhotoGeoTagger.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C692B27C171B536600D46E14 /* PhotoGeoTaggerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C692B291171B536600D46E14 /* Build configuration list for PBXNativeTarget "PhotoGeoTaggerTests" */;
+			buildPhases = (
+				C692B278171B536600D46E14 /* Sources */,
+				C692B279171B536600D46E14 /* Frameworks */,
+				C692B27A171B536600D46E14 /* Resources */,
+				C692B27B171B536600D46E14 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C692B282171B536600D46E14 /* PBXTargetDependency */,
+			);
+			name = PhotoGeoTaggerTests;
+			productName = PhotoGeoTaggerTests;
+			productReference = C692B27D171B536600D46E14 /* PhotoGeoTaggerTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C692B255171B536500D46E14 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = VWW;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Zakk Hoyt";
+			};
+			buildConfigurationList = C692B258171B536500D46E14 /* Build configuration list for PBXProject "PhotoGeoTagger" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C692B254171B536500D46E14;
+			productRefGroup = C692B25E171B536500D46E14 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C692B25C171B536500D46E14 /* PhotoGeoTagger */,
+				C692B27C171B536600D46E14 /* PhotoGeoTaggerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C692B25B171B536500D46E14 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C692B26B171B536500D46E14 /* InfoPlist.strings in Resources */,
+				C692B271171B536500D46E14 /* Credits.rtf in Resources */,
+				C692B277171B536600D46E14 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C692B27A171B536600D46E14 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C692B288171B536600D46E14 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C692B27B171B536600D46E14 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C692B259171B536500D46E14 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C692B26D171B536500D46E14 /* main.m in Sources */,
+				C692B274171B536500D46E14 /* VWWAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C692B278171B536600D46E14 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C692B28B171B536600D46E14 /* PhotoGeoTaggerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C692B282171B536600D46E14 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C692B25C171B536500D46E14 /* PhotoGeoTagger */;
+			targetProxy = C692B281171B536600D46E14 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C692B269171B536500D46E14 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C692B26A171B536500D46E14 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C692B26F171B536500D46E14 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C692B270171B536500D46E14 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		C692B275171B536600D46E14 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C692B276171B536600D46E14 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		C692B286171B536600D46E14 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C692B287171B536600D46E14 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C692B28C171B536600D46E14 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		C692B28D171B536600D46E14 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		C692B28F171B536600D46E14 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PhotoGeoTagger/PhotoGeoTagger-Prefix.pch";
+				INFOPLIST_FILE = "PhotoGeoTagger/PhotoGeoTagger-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C692B290171B536600D46E14 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PhotoGeoTagger/PhotoGeoTagger-Prefix.pch";
+				INFOPLIST_FILE = "PhotoGeoTagger/PhotoGeoTagger-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		C692B292171B536600D46E14 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PhotoGeoTagger.app/Contents/MacOS/PhotoGeoTagger";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PhotoGeoTagger/PhotoGeoTagger-Prefix.pch";
+				INFOPLIST_FILE = "PhotoGeoTaggerTests/PhotoGeoTaggerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		C692B293171B536600D46E14 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PhotoGeoTagger.app/Contents/MacOS/PhotoGeoTagger";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PhotoGeoTagger/PhotoGeoTagger-Prefix.pch";
+				INFOPLIST_FILE = "PhotoGeoTaggerTests/PhotoGeoTaggerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C692B258171B536500D46E14 /* Build configuration list for PBXProject "PhotoGeoTagger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C692B28C171B536600D46E14 /* Debug */,
+				C692B28D171B536600D46E14 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C692B28E171B536600D46E14 /* Build configuration list for PBXNativeTarget "PhotoGeoTagger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C692B28F171B536600D46E14 /* Debug */,
+				C692B290171B536600D46E14 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C692B291171B536600D46E14 /* Build configuration list for PBXNativeTarget "PhotoGeoTaggerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C692B292171B536600D46E14 /* Debug */,
+				C692B293171B536600D46E14 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C692B255171B536500D46E14 /* Project object */;
+}
