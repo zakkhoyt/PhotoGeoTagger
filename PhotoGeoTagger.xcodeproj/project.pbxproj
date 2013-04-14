@@ -17,6 +17,13 @@
 		C692B280171B536600D46E14 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C692B260171B536500D46E14 /* Cocoa.framework */; };
 		C692B288171B536600D46E14 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C692B286171B536600D46E14 /* InfoPlist.strings */; };
 		C692B28B171B536600D46E14 /* PhotoGeoTaggerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C692B28A171B536600D46E14 /* PhotoGeoTaggerTests.m */; };
+		C692B295171B53F300D46E14 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C692B294171B53F300D46E14 /* MapKit.framework */; };
+		C692B297171B540100D46E14 /* MapKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C692B294171B53F300D46E14 /* MapKit.framework */; };
+		C692B299171B540D00D46E14 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C692B298171B540D00D46E14 /* CoreLocation.framework */; };
+		C692B2A3171B545A00D46E14 /* VWWFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C692B29D171B545A00D46E14 /* VWWFileViewController.m */; };
+		C692B2A4171B545A00D46E14 /* VWWFileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C692B29E171B545A00D46E14 /* VWWFileViewController.xib */; };
+		C692B2A5171B545A00D46E14 /* VWWMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C692B2A1171B545A00D46E14 /* VWWMapViewController.m */; };
+		C692B2A6171B545A00D46E14 /* VWWMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C692B2A2171B545A00D46E14 /* VWWMapViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +36,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		C692B296171B53FA00D46E14 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C692B297171B540100D46E14 /* MapKit.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		C692B25D171B536500D46E14 /* PhotoGeoTagger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoGeoTagger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C692B260171B536500D46E14 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -40,8 +60,8 @@
 		C692B26C171B536500D46E14 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C692B26E171B536500D46E14 /* PhotoGeoTagger-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PhotoGeoTagger-Prefix.pch"; sourceTree = "<group>"; };
 		C692B270171B536500D46E14 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		C692B272171B536500D46E14 /* VWWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VWWAppDelegate.h; sourceTree = "<group>"; };
-		C692B273171B536500D46E14 /* VWWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VWWAppDelegate.m; sourceTree = "<group>"; };
+		C692B272171B536500D46E14 /* VWWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = VWWAppDelegate.h; path = ../VWWAppDelegate.h; sourceTree = "<group>"; };
+		C692B273171B536500D46E14 /* VWWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = VWWAppDelegate.m; path = ../VWWAppDelegate.m; sourceTree = "<group>"; };
 		C692B276171B536600D46E14 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		C692B27D171B536600D46E14 /* PhotoGeoTaggerTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoGeoTaggerTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C692B27E171B536600D46E14 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -49,6 +69,14 @@
 		C692B287171B536600D46E14 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C692B289171B536600D46E14 /* PhotoGeoTaggerTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoGeoTaggerTests.h; sourceTree = "<group>"; };
 		C692B28A171B536600D46E14 /* PhotoGeoTaggerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoGeoTaggerTests.m; sourceTree = "<group>"; };
+		C692B294171B53F300D46E14 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = PhotoGeoTagger/third_party/MapKit.framework; sourceTree = "<group>"; };
+		C692B298171B540D00D46E14 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		C692B29C171B545A00D46E14 /* VWWFileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VWWFileViewController.h; sourceTree = "<group>"; };
+		C692B29D171B545A00D46E14 /* VWWFileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VWWFileViewController.m; sourceTree = "<group>"; };
+		C692B29E171B545A00D46E14 /* VWWFileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VWWFileViewController.xib; sourceTree = "<group>"; };
+		C692B2A0171B545A00D46E14 /* VWWMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VWWMapViewController.h; sourceTree = "<group>"; };
+		C692B2A1171B545A00D46E14 /* VWWMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VWWMapViewController.m; sourceTree = "<group>"; };
+		C692B2A2171B545A00D46E14 /* VWWMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VWWMapViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +84,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C692B299171B540D00D46E14 /* CoreLocation.framework in Frameworks */,
 				C692B261171B536500D46E14 /* Cocoa.framework in Frameworks */,
+				C692B295171B53F300D46E14 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +124,8 @@
 		C692B25F171B536500D46E14 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C692B298171B540D00D46E14 /* CoreLocation.framework */,
+				C692B294171B53F300D46E14 /* MapKit.framework */,
 				C692B260171B536500D46E14 /* Cocoa.framework */,
 				C692B27E171B536600D46E14 /* SenTestingKit.framework */,
 				C692B262171B536500D46E14 /* Other Frameworks */,
@@ -114,9 +146,7 @@
 		C692B266171B536500D46E14 /* PhotoGeoTagger */ = {
 			isa = PBXGroup;
 			children = (
-				C692B272171B536500D46E14 /* VWWAppDelegate.h */,
-				C692B273171B536500D46E14 /* VWWAppDelegate.m */,
-				C692B275171B536600D46E14 /* MainMenu.xib */,
+				C692B29A171B545A00D46E14 /* GUI */,
 				C692B267171B536500D46E14 /* Supporting Files */,
 			);
 			path = PhotoGeoTagger;
@@ -153,6 +183,46 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		C692B29A171B545A00D46E14 /* GUI */ = {
+			isa = PBXGroup;
+			children = (
+				C692B2A7171B546300D46E14 /* AppDelegate */,
+				C692B29B171B545A00D46E14 /* files */,
+				C692B29F171B545A00D46E14 /* map */,
+			);
+			path = GUI;
+			sourceTree = "<group>";
+		};
+		C692B29B171B545A00D46E14 /* files */ = {
+			isa = PBXGroup;
+			children = (
+				C692B29C171B545A00D46E14 /* VWWFileViewController.h */,
+				C692B29D171B545A00D46E14 /* VWWFileViewController.m */,
+				C692B29E171B545A00D46E14 /* VWWFileViewController.xib */,
+			);
+			path = files;
+			sourceTree = "<group>";
+		};
+		C692B29F171B545A00D46E14 /* map */ = {
+			isa = PBXGroup;
+			children = (
+				C692B2A0171B545A00D46E14 /* VWWMapViewController.h */,
+				C692B2A1171B545A00D46E14 /* VWWMapViewController.m */,
+				C692B2A2171B545A00D46E14 /* VWWMapViewController.xib */,
+			);
+			path = map;
+			sourceTree = "<group>";
+		};
+		C692B2A7171B546300D46E14 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				C692B272171B536500D46E14 /* VWWAppDelegate.h */,
+				C692B273171B536500D46E14 /* VWWAppDelegate.m */,
+				C692B275171B536600D46E14 /* MainMenu.xib */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -163,6 +233,7 @@
 				C692B259171B536500D46E14 /* Sources */,
 				C692B25A171B536500D46E14 /* Frameworks */,
 				C692B25B171B536500D46E14 /* Resources */,
+				C692B296171B53FA00D46E14 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -228,6 +299,8 @@
 				C692B26B171B536500D46E14 /* InfoPlist.strings in Resources */,
 				C692B271171B536500D46E14 /* Credits.rtf in Resources */,
 				C692B277171B536600D46E14 /* MainMenu.xib in Resources */,
+				C692B2A4171B545A00D46E14 /* VWWFileViewController.xib in Resources */,
+				C692B2A6171B545A00D46E14 /* VWWMapViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +337,8 @@
 			files = (
 				C692B26D171B536500D46E14 /* main.m in Sources */,
 				C692B274171B536500D46E14 /* VWWAppDelegate.m in Sources */,
+				C692B2A3171B545A00D46E14 /* VWWFileViewController.m in Sources */,
+				C692B2A5171B545A00D46E14 /* VWWMapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +383,7 @@
 				C692B276171B536600D46E14 /* en */,
 			);
 			name = MainMenu.xib;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		C692B286171B536600D46E14 /* InfoPlist.strings */ = {
@@ -384,6 +460,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/PhotoGeoTagger/third_party\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PhotoGeoTagger/PhotoGeoTagger-Prefix.pch";
 				INFOPLIST_FILE = "PhotoGeoTagger/PhotoGeoTagger-Info.plist";
@@ -396,6 +476,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/PhotoGeoTagger/third_party\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PhotoGeoTagger/PhotoGeoTagger-Prefix.pch";
 				INFOPLIST_FILE = "PhotoGeoTagger/PhotoGeoTagger-Info.plist";
