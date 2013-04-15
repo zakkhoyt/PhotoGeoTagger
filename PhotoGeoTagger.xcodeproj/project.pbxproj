@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C65AB2C1171BD28A0059E6AD /* VWWAboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C65AB2BF171BD28A0059E6AD /* VWWAboutWindowController.m */; };
+		C65AB2C2171BD28A0059E6AD /* VWWAboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C65AB2C0171BD28A0059E6AD /* VWWAboutWindowController.xib */; };
 		C68410DE171B97D800DBDAFB /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = C68410DD171B97D800DBDAFB /* back.png */; };
 		C68410E0171B97F400DBDAFB /* forward.png in Resources */ = {isa = PBXBuildFile; fileRef = C68410DF171B97F400DBDAFB /* forward.png */; };
 		C68410E4171BBD6D00DBDAFB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C68410E3171BBD6D00DBDAFB /* QuartzCore.framework */; };
@@ -61,6 +63,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C65AB2BE171BD28A0059E6AD /* VWWAboutWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VWWAboutWindowController.h; sourceTree = "<group>"; };
+		C65AB2BF171BD28A0059E6AD /* VWWAboutWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VWWAboutWindowController.m; sourceTree = "<group>"; };
+		C65AB2C0171BD28A0059E6AD /* VWWAboutWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VWWAboutWindowController.xib; sourceTree = "<group>"; };
 		C68410DD171B97D800DBDAFB /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		C68410DF171B97F400DBDAFB /* forward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forward.png; sourceTree = "<group>"; };
 		C68410E1171BBD3600DBDAFB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -129,6 +134,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C65AB2BD171BD2760059E6AD /* AboutWindow */ = {
+			isa = PBXGroup;
+			children = (
+				C65AB2BE171BD28A0059E6AD /* VWWAboutWindowController.h */,
+				C65AB2BF171BD28A0059E6AD /* VWWAboutWindowController.m */,
+				C65AB2C0171BD28A0059E6AD /* VWWAboutWindowController.xib */,
+			);
+			name = AboutWindow;
+			sourceTree = "<group>";
+		};
 		C68410E7171BC0E000DBDAFB /* HelpWindow */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,11 +242,9 @@
 		C692B29A171B545A00D46E14 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C65AB2BD171BD2760059E6AD /* AboutWindow */,
 				C68410E7171BC0E000DBDAFB /* HelpWindow */,
-				C692B2A7171B546300D46E14 /* AppDelegate */,
-				C692B2C4171B6F3C00D46E14 /* PhotoTags */,
-				C692B29B171B545A00D46E14 /* Files */,
-				C692B29F171B545A00D46E14 /* Map */,
+				C692B2A7171B546300D46E14 /* MainWindow */,
 			);
 			name = controllers;
 			path = GUI;
@@ -259,14 +272,17 @@
 			path = map;
 			sourceTree = "<group>";
 		};
-		C692B2A7171B546300D46E14 /* AppDelegate */ = {
+		C692B2A7171B546300D46E14 /* MainWindow */ = {
 			isa = PBXGroup;
 			children = (
+				C692B2C4171B6F3C00D46E14 /* PhotoTags */,
+				C692B29B171B545A00D46E14 /* Files */,
+				C692B29F171B545A00D46E14 /* Map */,
 				C692B272171B536500D46E14 /* VWWAppDelegate.h */,
 				C692B273171B536500D46E14 /* VWWAppDelegate.m */,
 				C692B275171B536600D46E14 /* MainMenu.xib */,
 			);
-			name = AppDelegate;
+			name = MainWindow;
 			sourceTree = "<group>";
 		};
 		C692B2BB171B5FF900D46E14 /* models */ = {
@@ -386,6 +402,7 @@
 				C68410E0171B97F400DBDAFB /* forward.png in Resources */,
 				C68410F1171BC8FC00DBDAFB /* VWWHelpWindowController.xib in Resources */,
 				C68410F3171BCAE000DBDAFB /* vww_logo.png in Resources */,
+				C65AB2C2171BD28A0059E6AD /* VWWAboutWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +444,7 @@
 				C692B2BE171B5FF900D46E14 /* VWWContentItem.m in Sources */,
 				C692B2D2171B7FA300D46E14 /* VWWPhotoTagsViewController.m in Sources */,
 				C68410F0171BC8FC00DBDAFB /* VWWHelpWindowController.m in Sources */,
+				C65AB2C1171BD28A0059E6AD /* VWWAboutWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

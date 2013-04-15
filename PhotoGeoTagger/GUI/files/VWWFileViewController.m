@@ -5,6 +5,7 @@
 //  Created by Zakk Hoyt on 4/13/13.
 //  Copyright (c) 2013 Zakk Hoyt. All rights reserved.
 //
+//  For keypresses see this: http://stackoverflow.com/questions/4434820/simulate-arrow-keys-with-j-and-k-in-an-nstableview
 
 #import <QuartzCore/QuartzCore.h>
 #import "VWWFileViewController.h"

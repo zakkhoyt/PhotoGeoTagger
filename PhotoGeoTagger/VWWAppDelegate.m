@@ -11,13 +11,15 @@
 #import "VWWFileViewController.h"
 #import "VWWPhotoTagsViewController.h"
 #import "VWWHelpWindowController.h"
+#import "VWWAboutWindowController.h"
 
 
 @interface VWWAppDelegate () <VWWFileViewControllerDelegate, NSWindowDelegate>
 @property (strong) IBOutlet VWWMapViewController *mapViewController;
 @property (strong) IBOutlet VWWFileViewController *fileViewController;
 @property (strong) IBOutlet VWWPhotoTagsViewController *exifViewController;
-@property (strong) NSWindow *helpWindow;
+@property (strong) VWWHelpWindowController *helpWindowController;
+@property (strong) VWWAboutWindowController *aboutWindowController;
 @end
 
 @implementation VWWAppDelegate
@@ -25,11 +27,17 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     
+    NSArray *screenArray = [NSScreen screens];
+    NSScreen *screen = screenArray[0];
+    NSRect screenFrame = [screen visibleFrame];
+    [self.window setFrame:screenFrame display:YES];
+    
 //    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 //    [defaults setValue:@"YES" forKey:@"NSConstraintBasedLayoutVisualizeMutuallyExclusiveConstraints"];
 //    [defaults synchronize];
     
     self.window.delegate = self;
+    
     
     self.fileViewController = [[VWWFileViewController alloc]initWithNibName:@"VWWFileViewController" bundle:nil];
     self.fileViewController.delegate = self;
@@ -37,7 +45,7 @@
     self.fileViewController.view.frame = [self leftHalf];
     NSString *picturesDirectory = [NSString stringWithFormat:@"%@/%@", NSHomeDirectory(), @"Pictures"];
     [self.fileViewController seachForFilesInDirectory:picturesDirectory];
-    
+  
     self.mapViewController = [[VWWMapViewController alloc]initWithNibName:@"VWWMapViewController" bundle:nil];
     [self.window.contentView addSubview:self.mapViewController.view];
     self.mapViewController.view.frame = [self topRight];
@@ -141,25 +149,39 @@
 #pragma mark Menus
 
 - (IBAction)helpMenuAction:(id)sender {
-//    NSArray *screenArray = [NSScreen screens];
-//    NSScreen *screen = screenArray[0];
-//    NSRect screenFrame = [screen visibleFrame];
-//    NSSize heloWndowSize = NSMakeSize(200, 200);
-//    
-//    NSRect frame = NSMakeRect(screenFrame.size.width / 2.0 - heloWndowSize.width / 2.0,
-//                              screenFrame.size.height / 2.0 - heloWndowSize.height / 2.0,
-//                              heloWndowSize.width,
-//                              heloWndowSize.height);
-//    self.helpWindow  = [[NSWindow alloc] initWithContentRect:frame
-//                                                   styleMask:NSClosableWindowMask
-//                                                       backing:NSBackingStoreRetained
-//                                                         defer:NO];
-//    [self.helpWindow setBackgroundColor:[NSColor blackColor]];
-//    [self.helpWindow makeKeyAndOrderFront:NSApp];
+    NSArray *screenArray = [NSScreen screens];
+    NSScreen *screen = screenArray[0];
+    NSRect screenFrame = [screen visibleFrame];
+    NSSize heloWndowSize = NSMakeSize(510, 204);
     
-    VWWHelpWindowController *helpWindowController = [[VWWHelpWindowController alloc] initWithWindowNibName:@"VWWHelpWindowController"];
-    [helpWindowController showWindow:self];
+    NSRect frame = NSMakeRect(screenFrame.size.width / 2.0 - heloWndowSize.width / 2.0,
+                              screenFrame.size.height / 2.0 - heloWndowSize.height / 2.0,
+                              heloWndowSize.width,
+                              heloWndowSize.height);
+    
+    
+    
+    self.helpWindowController = [[VWWHelpWindowController alloc] initWithWindowNibName:@"VWWHelpWindowController"];
+    [self.helpWindowController.window setFrame:frame display:YES animate:YES];
+    [self.helpWindowController showWindow:self];
 
+}
+- (IBAction)aboutMenuAction:(id)sender {
+    NSArray *screenArray = [NSScreen screens];
+    NSScreen *screen = screenArray[0];
+    NSRect screenFrame = [screen visibleFrame];
+    NSSize heloWndowSize = NSMakeSize(510, 204);
+    
+    NSRect frame = NSMakeRect(screenFrame.size.width / 2.0 - heloWndowSize.width / 2.0,
+                              screenFrame.size.height / 2.0 - heloWndowSize.height / 2.0,
+                              heloWndowSize.width,
+                              heloWndowSize.height);
+    
+    
+    
+    self.aboutWindowController = [[VWWAboutWindowController alloc] initWithWindowNibName:@"VWWAboutWindowController"];
+    [self.aboutWindowController.window setFrame:frame display:YES animate:YES];
+    [self.aboutWindowController showWindow:self];
 }
 
 
