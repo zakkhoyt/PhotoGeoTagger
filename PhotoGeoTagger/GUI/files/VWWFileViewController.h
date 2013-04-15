@@ -8,6 +8,14 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface VWWFileViewController : NSViewController
 
+@class VWWContentItem;
+@class VWWFileViewController;
+
+@protocol VWWFileViewControllerDelegate <NSObject>
+-(void)fileViewController:(VWWFileViewController*)sender item:(VWWContentItem*)item;
+@end
+
+@interface VWWFileViewController : NSViewController
+@property (weak) id <VWWFileViewControllerDelegate> delegate;
 @end

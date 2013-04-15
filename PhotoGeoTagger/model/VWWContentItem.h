@@ -14,5 +14,5 @@
 @property (strong) NSString *displayName;
 @property (strong) NSString *extension;
 @property BOOL isDirectory;
-
+@property (strong) NSMutableDictionary *metaData;
 @end

@@ -28,6 +28,13 @@
     return self;
 }
 
+-(void)loadView{
+    [super loadView];
+    
+    [_tableView setDoubleAction:@selector(tableViewDoubleAction:)];
+
+}
+
 
 
 -(void)seachForFilesInDirectory:(NSString*)path{
@@ -81,6 +88,38 @@
 
 
 
+- (NSDictionary*)photoTagsFromFile:(NSString*)file{
+    NSDictionary* dic;
+    NSURL* url =[NSURL fileURLWithPath:file];
+    
+    if(url){
+        CGImageSourceRef source = CGImageSourceCreateWithURL((CFURLRef)CFBridgingRetain(url), NULL);
+        
+        if(NULL == source){
+#ifdef _DEBUG
+            CGImageSourceStatus status = CGImageSourceGetStatus ( source );
+            NSLog ( @"Error: file name : %@ - Status: %d", file, status );
+#endif
+        }
+        else{
+            CFDictionaryRef metadataRef = CGImageSourceCopyPropertiesAtIndex(source, 0, NULL);
+            if(metadataRef){
+                NSDictionary* immutableMetadata = (NSDictionary *)CFBridgingRelease(metadataRef);
+                if(immutableMetadata){
+                    dic = [NSDictionary dictionaryWithDictionary:(NSDictionary *)CFBridgingRelease(metadataRef)];
+                }
+                CFRelease(metadataRef);
+            }
+            
+            CFRelease(source);
+            source = nil;
+        }
+    }
+    
+    return dic;
+}
+
+
 
 #pragma mark IBActions
 
@@ -99,6 +138,35 @@
         [self.tableView reloadData];
     }];
  }
+
+- (IBAction)tableViewAction:(id)sender {
+
+    NSInteger selectedRow = [self.tableView selectedRow];
+    if (selectedRow != -1) {
+        VWWContentItem  *item = self.contents[selectedRow];
+        NSDictionary *photoTags = [self photoTagsFromFile:item.path];
+        if(photoTags){
+            NSLog(@"photoTags=%@" ,photoTags);
+            item.metaData = [photoTags mutableCopy];
+            [self.delegate fileViewController:self item:item];
+        }
+    }
+}
+
+-(void)tableViewDoubleAction:(id)sender{
+    NSLog(@"%s", __FUNCTION__);
+    NSInteger selectedRow = [self.tableView selectedRow];
+    if (selectedRow != -1) {
+        VWWContentItem  *item = self.contents[selectedRow];
+        NSDictionary *photoTags = [self photoTagsFromFile:item.path];
+        if(photoTags){
+            NSLog(@"photoTags=%@" ,photoTags);
+            item.metaData = [photoTags mutableCopy];
+            [self.delegate fileViewController:self item:item];
+        }
+    }
+
+}
 
 
 
@@ -127,11 +195,19 @@
 }
 
 #pragma mark Implements NSTableViewDelegate
-- (void)tableView:(NSTableView *)tableView didClickTableColumn:(NSTableColumn *)tableColumn{
-        
-//    CGImageSourceCreateWithData(someCFDataRef, nil);
-//    CFDictionaryRef dictRef = CGImageSourceCopyPropertiesAtIndex(imgSource, 0, nil);
-}
+
+
+
+//- (void)tableViewSelectionDidChange:(NSNotification *)aNotification{
+//    NSDictionary *aNotification.userInfo
+//}
+//
+
+//- (void)tableView:(NSTableView *)tableView didClickTableColumn:(NSTableColumn *)tableColumn{
+//        self.contents[
+////    CGImageSourceCreateWithData(someCFDataRef, nil);
+////    CFDictionaryRef dictRef = CGImageSourceCopyPropertiesAtIndex(imgSource, 0, nil);
+//}
 @end
 
 

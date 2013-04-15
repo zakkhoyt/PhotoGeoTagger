@@ -41,10 +41,11 @@
     self.mapView.delegate = self;
 }
 
-- (IBAction)addressTextFieldAction:(id)sender {
+- (IBAction)mapTextField:(id)sender {
     NSTextField *tf = (NSTextField*)sender;
     [self.mapView showAddress:tf.stringValue];
 }
+
 
 
 
