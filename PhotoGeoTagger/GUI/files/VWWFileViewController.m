@@ -295,6 +295,22 @@ typedef enum {
     return [self.contents count];
 }
 
+// Catch keyboard
+- (void)tableViewSelectionDidChange:(NSNotification *)aNotification{
+    NSLog(@"%s", __FUNCTION__   );
+    
+    NSInteger selectedRow = [self.tableView selectedRow];
+    if (selectedRow != -1) {
+        VWWContentItem  *item = self.contents[selectedRow];
+        if(item.isDirectory == NO){
+            [self.imageView setImage:[[NSImage alloc]initWithContentsOfFile:item.path]];
+            [self.delegate fileViewController:self item:item];
+            
+        }
+    }
+}
+
+
 #pragma mark Implements NSTableViewDelegate
 
 
