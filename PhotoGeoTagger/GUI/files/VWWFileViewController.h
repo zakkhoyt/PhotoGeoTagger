@@ -14,8 +14,10 @@
 
 @protocol VWWFileViewControllerDelegate <NSObject>
 -(void)fileViewController:(VWWFileViewController*)sender item:(VWWContentItem*)item;
+-(void)fileViewController:(VWWFileViewController*)sender setWindowTitle:(NSString*)title;
 @end
 
 @interface VWWFileViewController : NSViewController
 @property (weak) id <VWWFileViewControllerDelegate> delegate;
+-(void)seachForFilesInDirectory:(NSString*)path;
 @end

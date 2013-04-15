@@ -98,14 +98,6 @@ static NSString* kPhotoTagsGPSKey = @"{GPS}";
             self.tabIndex = 3;
         }
         
-        if([d allKeys].count){
-            NSLog(@"loading genera data");
-            self.generalKeys = [d allKeys];
-            self.generalValues = [d allValues];
-            [self.generalTableView reloadData];
-            self.tabIndex = 0;
-        }
-        
         if([keys indexOfObject:kPhotoTagsGPSKey] != NSNotFound){
             NSLog(@"GPS found");
             self.gpsKeys = [d[kPhotoTagsGPSKey] allKeys];
@@ -115,13 +107,22 @@ static NSString* kPhotoTagsGPSKey = @"{GPS}";
             self.tabIndex = 1;
         }
 
+        if([d allKeys].count){
+            NSLog(@"loading genera data");
+            self.generalKeys = [d allKeys];
+            self.generalValues = [d allValues];
+            [self.generalTableView reloadData];
+            self.tabIndex = 0;
+        }
+        
+
 
     }
     
-    // set tabView to a tab with content
-    if(self.tabIndex >= 0){
-        [self.tabView selectTabViewItemAtIndex:self.tabIndex];
-    }
+//    // set tabView to a tab with content
+//    if(self.tabIndex > 0){
+//        [self.tabView selectTabViewItemAtIndex:self.tabIndex];
+//    }
     
 }
 

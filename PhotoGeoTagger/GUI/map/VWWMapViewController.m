@@ -37,7 +37,6 @@
 
 -(void)loadView{
     [super loadView];
-    [_mapView setMapType:MKMapTypeHybrid];
     self.mapView.delegate = self;
 }
 
@@ -47,7 +46,7 @@
 }
 
 
-
+#pragma mark Public methods
 
 //-(void)findCurrentLocation{
 //    CLLocationManager *locationManager = [[CLLocationManager alloc] init];
@@ -80,6 +79,32 @@
     self.lattitudeTextField.stringValue = [NSString stringWithFormat:@"%f", centerCoordinate.latitude];
     self.longitudeTextField.stringValue = [NSString stringWithFormat:@"%f", centerCoordinate.longitude];
 }
+
+
+#pragma mark IBActions
+
+- (IBAction)radioButtonsAction:(id)sender {
+    NSButtonCell *selCell = [sender selectedCell];
+    
+    switch([selCell tag]){
+        case 100:
+            self.mapView.mapType = MKMapTypeStandard;
+            break;
+        case 200:
+            self.mapView.mapType = MKMapTypeSatellite;
+            break;
+        case 300:
+            self.mapView.mapType = MKMapTypeHybrid;
+            break;
+        default:
+            break;
+    }
+    
+
+}
+
+
+
 
 
 

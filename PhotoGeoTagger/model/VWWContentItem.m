@@ -10,4 +10,13 @@
 
 @implementation VWWContentItem
 
+-(BOOL)hasGPSData{
+    if(self.metaData == nil) return NO;
+    for(NSString *key in [self.metaData allKeys]){
+        if([key isEqualToString:@"{GPS}"]){
+            return YES;
+        }
+    }
+    return NO;
+}
 @end

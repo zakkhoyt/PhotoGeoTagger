@@ -8,11 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+
+
 @interface VWWContentItem : NSObject
 @property (strong) NSURL *url;
 @property (strong) NSString *path;
 @property (strong) NSString *displayName;
 @property (strong) NSString *extension;
-@property BOOL isDirectory;
 @property (strong) NSMutableDictionary *metaData;
+@property BOOL isDirectory;
+
+-(BOOL)hasGPSData;
 @end
