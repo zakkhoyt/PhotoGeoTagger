@@ -217,20 +217,20 @@ typedef enum {
     }];
  }
 
-- (IBAction)tableViewAction:(id)sender {
-
-    NSInteger selectedRow = [self.tableView selectedRow];
-    if (selectedRow != -1) {
-        VWWContentItem  *item = self.contents[selectedRow];
-//        NSDictionary *photoTags = [self photoTagsFromFile:item.path];
-//        if(photoTags){
-//            NSLog(@"photoTags=%@" ,photoTags);
-//            item.metaData = [photoTags mutableCopy];
-            [self.imageView setImage:[[NSImage alloc]initWithContentsOfFile:item.path]];
-            [self.delegate fileViewController:self item:item];
-//        }
-    }
-}
+//- (IBAction)tableViewAction:(id)sender {
+//
+//    NSInteger selectedRow = [self.tableView selectedRow];
+//    if (selectedRow != -1) {
+//        VWWContentItem  *item = self.contents[selectedRow];
+////        NSDictionary *photoTags = [self photoTagsFromFile:item.path];
+////        if(photoTags){
+////            NSLog(@"photoTags=%@" ,photoTags);
+////            item.metaData = [photoTags mutableCopy];
+//            [self.imageView setImage:[[NSImage alloc]initWithContentsOfFile:item.path]];
+//            [self.delegate fileViewController:self itemSelected:item];
+////        }
+//    }
+//}
 
 -(void)tableViewDoubleAction:(id)sender{
     NSLog(@"%s", __FUNCTION__);
@@ -304,7 +304,7 @@ typedef enum {
         VWWContentItem  *item = self.contents[selectedRow];
         if(item.isDirectory == NO){
             [self.imageView setImage:[[NSImage alloc]initWithContentsOfFile:item.path]];
-            [self.delegate fileViewController:self item:item];
+            [self.delegate fileViewController:self itemSelected:item];
             
         }
     }

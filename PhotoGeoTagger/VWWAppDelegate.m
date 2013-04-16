@@ -108,7 +108,7 @@
 
 
 #pragma mark Implements VWWFileViewControllerDelegate
--(void)fileViewController:(VWWFileViewController*)sender item:(VWWContentItem*)item{
+-(void)fileViewController:(VWWFileViewController*)sender itemSelected:(VWWContentItem*)item{
     [self.exifViewController loadItem:item];
 }
 

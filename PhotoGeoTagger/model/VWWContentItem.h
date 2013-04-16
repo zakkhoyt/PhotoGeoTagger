@@ -19,4 +19,5 @@
 @property BOOL isDirectory;
 
 -(BOOL)hasGPSData;
+-(NSString *)description;
 @end

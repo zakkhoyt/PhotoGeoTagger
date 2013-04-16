@@ -13,7 +13,7 @@
 @class VWWFileViewController;
 
 @protocol VWWFileViewControllerDelegate <NSObject>
--(void)fileViewController:(VWWFileViewController*)sender item:(VWWContentItem*)item;
+-(void)fileViewController:(VWWFileViewController*)sender itemSelected:(VWWContentItem*)item;
 -(void)fileViewController:(VWWFileViewController*)sender setWindowTitle:(NSString*)title;
 @end
 

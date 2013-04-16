@@ -19,4 +19,21 @@
     }
     return NO;
 }
+
+
+-(NSString *)description{
+    return [NSString stringWithFormat:@"url=%@\n"
+            "displayName=%@"
+            "path=%@"
+            "extension=%@"
+            "metaData=%@",
+            self.url.absoluteString,
+            self.displayName,
+            self.path,
+            self.extension,
+            self.metaData];
+
+}
+
+
 @end

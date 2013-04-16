@@ -1,0 +1,1 @@
+For information on generating images: http://developer.apple.com/library/mac/#documentation/userexperience/conceptual/applehiguidelines/IconsImages/IconsImages.html#//apple_ref/doc/uid/20000967-TPXREF102%28
