@@ -40,6 +40,9 @@ static NSString* kPhotoTagsGPSKey = @"{GPS}";
 @property (strong) NSArray *jfifValues;
 @property (strong) IBOutlet NSTableView *jfifTableView;
 
+@property (strong) IBOutlet NSTextView *textView;
+
+
 @property (strong) IBOutlet NSTabView *tabView;
 @property NSInteger tabIndex;
 @end
@@ -58,13 +61,6 @@ static NSString* kPhotoTagsGPSKey = @"{GPS}";
 
 
 -(void)loadItem:(VWWContentItem*)item{
-
-    
-//    NSDictionary *temp = [NSDictionary dictionaryWithDictionary:item.metaData];
-    
-    
-    
-    
     
     NSMutableDictionary *d = [[NSDictionary dictionaryWithDictionary:item.metaData]mutableCopy];
     if(d){
@@ -115,6 +111,7 @@ static NSString* kPhotoTagsGPSKey = @"{GPS}";
             self.tabIndex = 0;
         }
         
+        self.textView.string = item.metaData.description;
 
 
     }
@@ -155,6 +152,30 @@ static NSString* kPhotoTagsGPSKey = @"{GPS}";
         keys = self.generalKeys;
         values = self.generalValues;
     }
+  
+    
+    
+    
+    for(NSInteger index = 0; index < values.count; index++){
+        id item = values[index];
+        if([item isKindOfClass:[NSDictionary class]] == YES){
+            NSLog(@"%@ is dictionary", keys[index]);
+        }
+        else if([item isKindOfClass:[NSArray class]] == YES){
+            NSLog(@"%@ is array", keys[index]);
+        }
+        else if([item isKindOfClass:[NSString class]] == YES){
+            NSLog(@"%@ is string", keys[index]);
+        }
+        else{
+            NSLog(@"%@ is other", keys[index]);
+        }
+    }
+    
+    
+    
+    
+    
     
     if([tableColumn.identifier isEqualToString:@"keyColumn"]){
         cellView.textField.stringValue = keys[row];
@@ -164,6 +185,10 @@ static NSString* kPhotoTagsGPSKey = @"{GPS}";
         cellView.textField.stringValue = values[row];
         return cellView;
     }
+    
+
+  
+
     
     
     return cellView;
