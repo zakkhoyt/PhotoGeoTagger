@@ -18,6 +18,11 @@
 @property (strong) NSMutableDictionary *metaData;
 @property BOOL isDirectory;
 
+-(BOOL)hasGeneralData;
 -(BOOL)hasGPSData;
+-(BOOL)hasJFIFData;
+-(BOOL)hasTIFFData;
+-(BOOL)hasEXIFData;
+
 -(NSString *)description;
 @end

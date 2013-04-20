@@ -19,7 +19,18 @@ typedef enum {
     VWWFileFilterTypeAll = 0,
     VWWFileFilterTypeWithoutGPSDataOnly = 1,
     VWWFileFilterTypeWithGPSDataOnly = 2,
+    VWWFileFilterTypeCustom = 3,
 } VWWFileFilterType;;
+
+
+typedef enum {
+    VWWFileTagFilterTypeAll =           0x00,
+    VWWFileTagFilterTypeHasGeneral =    0x01 << 0,
+    VWWFileTagFilterTypeHasGPS =        0x01 << 1,
+    VWWFileTagFilterTypeHasEXIF =       0x01 << 2,
+    VWWFileTagFilterTypeHasTIFF =       0x01 << 3,
+    VWWFileTagFilterTypeHasJFIF =       0x01 << 4,
+}VWWFileTagFilterType;
 
 @interface VWWFileViewController () <NSMatrixDelegate>
 @property (strong) IBOutlet NSTableView *tableView;
@@ -35,6 +46,16 @@ typedef enum {
 @property (strong) IBOutlet NSProgressIndicator *progressIndicator;
 @property (strong) IBOutlet NSView *progressView;
 @property CALayer *progressViewCALayer;
+
+@property NSUInteger fileTagFilterType;
+
+@property (strong) IBOutlet NSButton *hasGeneralDataButton;
+@property (strong) IBOutlet NSButton *hasGPSDataButton;
+@property (strong) IBOutlet NSButton *hasEXIFDataButton;
+@property (strong) IBOutlet NSButton *hasJFIFDataButton;
+@property (strong) IBOutlet NSButton *hasTIFFDataButton;
+
+
 @end
 
 
@@ -52,7 +73,7 @@ typedef enum {
 -(void)loadView{
     [super loadView];
     
-    
+    self.fileTagFilterType = VWWFileTagFilterTypeAll;
     self.progressViewCALayer = [CALayer layer];
     [self.progressViewCALayer setBackgroundColor:CGColorCreateGenericRGB(0.0, 0.0, 0.0, 0.5)];
     [self.progressView setWantsLayer:YES]; 
@@ -197,9 +218,58 @@ typedef enum {
     return dic;
 }
 
-
+-(void)updateCheckboxes:(BOOL)enable{
+    [self.hasGeneralDataButton setEnabled:enable];
+    [self.hasGPSDataButton setEnabled:enable];
+    [self.hasEXIFDataButton setEnabled:enable];
+    [self.hasTIFFDataButton setEnabled:enable];
+    [self.hasJFIFDataButton setEnabled:enable];
+}
 
 #pragma mark IBActions
+
+
+
+
+-(void)updateFlag:(VWWFileTagFilterType)flag set:(BOOL)set{
+    if(set){
+        self.fileTagFilterType |= flag;
+    }
+    else{
+        self.fileTagFilterType &= ~flag;
+    }
+}
+
+- (IBAction)hasGeneralDataCheckboxAction:(id)sender {
+    NSButton *checkBox = (NSButton*)sender;
+    [self updateFlag:VWWFileTagFilterTypeHasGeneral set:([checkBox state] == NSOnState)];
+    [self seachForFilesInDirectory:self.currentDirectory];
+}
+
+- (IBAction)hasGPSDataCheckboxAction:(id)sender {
+    NSButton *checkBox = (NSButton*)sender;
+    [self updateFlag:VWWFileTagFilterTypeHasGPS set:([checkBox state] == NSOnState)];
+    [self seachForFilesInDirectory:self.currentDirectory];
+}
+
+- (IBAction)hasEXIFDataCheckboxAction:(id)sender {
+    NSButton *checkBox = (NSButton*)sender;
+    [self updateFlag:VWWFileTagFilterTypeHasEXIF set:([checkBox state] == NSOnState)];
+    [self seachForFilesInDirectory:self.currentDirectory];
+}
+
+- (IBAction)hasJFIFDataCheckboxAction:(id)sender {
+    NSButton *checkBox = (NSButton*)sender;
+    [self updateFlag:VWWFileTagFilterTypeHasJFIF set:([checkBox state] == NSOnState)];
+    [self seachForFilesInDirectory:self.currentDirectory];
+}
+
+- (IBAction)hasTFIFDataCheckboxAction:(id)sender {
+    NSButton *checkBox = (NSButton*)sender;
+    [self updateFlag:VWWFileTagFilterTypeHasTIFF set:([checkBox state] == NSOnState)];
+    [self seachForFilesInDirectory:self.currentDirectory];
+}
+
 
 - (IBAction)browseButtonAction:(id)sender {
     NSOpenPanel *openPanel = [NSOpenPanel openPanel];
@@ -252,7 +322,7 @@ typedef enum {
 
 - (IBAction)radioButtonsAction:(id)sender {
     NSButtonCell *selCell = [sender selectedCell];
-
+    BOOL enableCustomFileTagFilters = NO;
     switch([selCell tag]){
         case 0:
             self.filterType = VWWFileFilterTypeAll;
@@ -263,12 +333,18 @@ typedef enum {
         case 2:
             self.filterType = VWWFileFilterTypeWithGPSDataOnly;
             break;
+        case 3:
+            self.filterType = VWWFileFilterTypeCustom;
+            enableCustomFileTagFilters = YES;
+            break;
         default:
             break;
     }
     
+    [self updateCheckboxes:enableCustomFileTagFilters];
     [self seachForFilesInDirectory:self.currentDirectory];
 }
+
 
 
 #pragma mark Implements NSTableViewDataSource

@@ -10,16 +10,31 @@
 
 @implementation VWWContentItem
 
--(BOOL)hasGPSData{
+-(BOOL)hasDataWithTag:(NSString*)tag{
     if(self.metaData == nil) return NO;
     for(NSString *key in [self.metaData allKeys]){
-        if([key isEqualToString:@"{GPS}"]){
+        if([key isEqualToString:tag]){
             return YES;
         }
     }
     return NO;
 }
 
+-(BOOL)hasGeneralData{
+    return (BOOL)([self.metaData allKeys].count);
+}
+-(BOOL)hasGPSData{
+    return [self hasDataWithTag:@"{GPS}"];
+}
+-(BOOL)hasJFIFData{
+    return [self hasDataWithTag:@"{JFIF}"];
+}
+-(BOOL)hasTIFFData{
+    return [self hasDataWithTag:@"{TIFF}"];
+}
+-(BOOL)hasEXIFData{
+    return [self hasDataWithTag:@"{EXIF}"];
+}
 
 -(NSString *)description{
     return [NSString stringWithFormat:@"url=%@\n"
