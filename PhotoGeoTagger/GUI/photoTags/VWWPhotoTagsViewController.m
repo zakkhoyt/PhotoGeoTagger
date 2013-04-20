@@ -8,6 +8,7 @@
 
 #import "VWWPhotoTagsViewController.h"
 #import "VWWContentItem.h"
+#import "VWWPhotoTagsTableViewCell.h"
 
 static NSString* kPhotoTagsTIFFKey = @"{TIFF}";
 static NSString* kPhotoTagsJFIFKey = @"{JFIF}";
@@ -45,6 +46,9 @@ static NSString* kPhotoTagsGPSKey = @"{GPS}";
 
 @property (strong) IBOutlet NSTabView *tabView;
 @property NSInteger tabIndex;
+
+@property (strong) NSTableColumn *keyColumn;
+@property (strong) NSTableColumn *valueColumn;
 @end
 
 @implementation VWWPhotoTagsViewController
@@ -124,13 +128,46 @@ static NSString* kPhotoTagsGPSKey = @"{GPS}";
 }
 
 
+- (IBAction)gpsValueTextFieldAction:(id)sender {
+    NSInteger row = [self.gpsTableView rowForView:sender];
+    NSTextField *valueTextField = (NSTextField*)sender;
+    NSLog(@"GPS value row %ld = %@", row, valueTextField.stringValue);
+}
+
+
+- (IBAction)generalValueTextFieldAction:(id)sender {
+    NSInteger row = [self.generalTableView rowForView:sender];
+    NSTextField *valueTextField = (NSTextField*)sender;
+    NSLog(@"general value row %ld = %@", row, valueTextField.stringValue);
+}
+
+- (IBAction)exifValueTextFieldAction:(id)sender {
+    NSInteger row = [self.exifTableView rowForView:sender];
+    NSTextField *valueTextField = (NSTextField*)sender;
+    NSLog(@"exif value row %ld = %@", row, valueTextField.stringValue);
+}
+
+- (IBAction)tiffValueTextFieldAction:(id)sender {
+    NSInteger row = [self.tiffTableView rowForView:sender];
+    NSTextField *valueTextField = (NSTextField*)sender;
+    NSLog(@"tiff value row %ld = %@", row, valueTextField.stringValue);
+}
+
+- (IBAction)jfifValueTextFieldAction:(id)sender {
+    NSInteger row = [self.jfifTableView rowForView:sender];
+    NSTextField *valueTextField = (NSTextField*)sender;
+    NSLog(@"jfif value row %ld = %@", row, valueTextField.stringValue);
+}
+
 
 
 #pragma mark Implements NSTableViewDataSource
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
     NSArray *keys;
     NSArray *values;
-    NSTableCellView *cellView = [tableView makeViewWithIdentifier:tableColumn.identifier owner:self];
+//    NSTableCellView *cellView = [tableView makeViewWithIdentifier:tableColumn.identifier owner:self];
+    VWWPhotoTagsTableViewCell *cellView = (VWWPhotoTagsTableViewCell*)[tableView makeViewWithIdentifier:tableColumn.identifier owner:self];
+
     
     if(tableView == self.exifTableView){
         keys = self.exifKeys;
@@ -155,27 +192,23 @@ static NSString* kPhotoTagsGPSKey = @"{GPS}";
   
     
     
-    
-    for(NSInteger index = 0; index < values.count; index++){
-        id item = values[index];
-        if([item isKindOfClass:[NSDictionary class]] == YES){
-            NSLog(@"%@ is dictionary", keys[index]);
-        }
-        else if([item isKindOfClass:[NSArray class]] == YES){
-            NSLog(@"%@ is array", keys[index]);
-        }
-        else if([item isKindOfClass:[NSString class]] == YES){
-            NSLog(@"%@ is string", keys[index]);
-        }
-        else{
-            NSLog(@"%@ is other", keys[index]);
-        }
-    }
-    
-    
-    
-    
-    
+//    for(NSInteger index = 0; index < values.count; index++){
+//        id item = values[index];
+//        if([item isKindOfClass:[NSDictionary class]] == YES){
+//            NSLog(@"%@ is dictionary", keys[index]);
+//        }
+//        else if([item isKindOfClass:[NSArray class]] == YES){
+//            NSLog(@"%@ is array", keys[index]);
+//        }
+//        else if([item isKindOfClass:[NSString class]] == YES){
+//            NSLog(@"%@ is string", keys[index]);
+//        }
+//        else{
+//            NSLog(@"%@ is other", keys[index]);
+//        }
+//    }
+
+
     
     if([tableColumn.identifier isEqualToString:@"keyColumn"]){
         cellView.textField.stringValue = keys[row];
@@ -183,13 +216,10 @@ static NSString* kPhotoTagsGPSKey = @"{GPS}";
     }
     else if( [tableColumn.identifier isEqualToString:@"valueColumn"] ){
         cellView.textField.stringValue = values[row];
+//        cellView.valuesArray = values;
+//        cellView.index = row;
         return cellView;
     }
-    
-
-  
-
-    
     
     return cellView;
 }
@@ -219,14 +249,19 @@ static NSString* kPhotoTagsGPSKey = @"{GPS}";
 
 
 
-
-
-
-
-
-
-
-
+#pragma mark Implements NSTableViewDelegate
+//
+//// http://stackoverflow.com/questions/910267/nstableview-with-custom-cells
+//- (NSCell *)tableView:(NSTableView *)tableView dataCellForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row{
+//    if([tableColumn.identifier isEqualToString:@"keyColumn"]){
+//        
+//    }
+//    else if( [tableColumn.identifier isEqualToString:@"valueColumn"] ){
+//        VWWPhotoTagsValueCell *cell = [[VWWPhotoTagsValueCell alloc]init];
+//        return cell;
+//    }
+//    return [[NSCell alloc]init];
+//}
 
 
 

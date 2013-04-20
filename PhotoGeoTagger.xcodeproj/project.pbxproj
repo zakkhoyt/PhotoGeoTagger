@@ -37,6 +37,7 @@
 		C692B2D3171B7FA300D46E14 /* VWWPhotoTagsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C692B2D1171B7FA300D46E14 /* VWWPhotoTagsViewController.xib */; };
 		C6A2B0F0171CC64200BA6E70 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = C6A2B0EF171CC64200BA6E70 /* icon.icns */; };
 		C6A2B0F2171CC6CE00BA6E70 /* info.txt in Resources */ = {isa = PBXBuildFile; fileRef = C6A2B0F1171CC6CE00BA6E70 /* info.txt */; };
+		C6E50C4C17227FF5007E533E /* VWWPhotoTagsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6E50C4B17227FF5007E533E /* VWWPhotoTagsTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,8 @@
 		C692B2D1171B7FA300D46E14 /* VWWPhotoTagsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VWWPhotoTagsViewController.xib; path = photoTags/VWWPhotoTagsViewController.xib; sourceTree = "<group>"; };
 		C6A2B0EF171CC64200BA6E70 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
 		C6A2B0F1171CC6CE00BA6E70 /* info.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = info.txt; sourceTree = "<group>"; };
+		C6E50C4A17227FF5007E533E /* VWWPhotoTagsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VWWPhotoTagsTableViewCell.h; path = photoTags/VWWPhotoTagsTableViewCell.h; sourceTree = "<group>"; };
+		C6E50C4B17227FF5007E533E /* VWWPhotoTagsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VWWPhotoTagsTableViewCell.m; path = photoTags/VWWPhotoTagsTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,6 +316,8 @@
 				C692B2CF171B7FA300D46E14 /* VWWPhotoTagsViewController.h */,
 				C692B2D0171B7FA300D46E14 /* VWWPhotoTagsViewController.m */,
 				C692B2D1171B7FA300D46E14 /* VWWPhotoTagsViewController.xib */,
+				C6E50C4A17227FF5007E533E /* VWWPhotoTagsTableViewCell.h */,
+				C6E50C4B17227FF5007E533E /* VWWPhotoTagsTableViewCell.m */,
 			);
 			name = PhotoTags;
 			sourceTree = "<group>";
@@ -445,6 +450,7 @@
 				C692B2D2171B7FA300D46E14 /* VWWPhotoTagsViewController.m in Sources */,
 				C68410F0171BC8FC00DBDAFB /* VWWHelpWindowController.m in Sources */,
 				C65AB2C1171BD28A0059E6AD /* VWWAboutWindowController.m in Sources */,
+				C6E50C4C17227FF5007E533E /* VWWPhotoTagsTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

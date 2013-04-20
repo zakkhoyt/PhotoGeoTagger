@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PhotoGeoTagger/GUI/photoTags/VWWPhotoTagsViewController.m"
-         timestampString = "388118052.598139"
+         timestampString = "388138190.775928"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "159"
-         endingLineNumber = "159"
+         startingLineNumber = "172"
+         endingLineNumber = "172"
          landmarkName = "-tableView:viewForTableColumn:row:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -46,13 +46,65 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "PhotoGeoTagger/GUI/photoTags/VWWPhotoTagsViewController.m"
-         timestampString = "388118059.758529"
+         filePath = "PhotoGeoTagger/GUI/photoTags/VWWPhotoTagsTextField.m"
+         timestampString = "388133652.821407"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "135"
-         endingLineNumber = "135"
+         startingLineNumber = "17"
+         endingLineNumber = "17"
+         landmarkName = "-initWithCoder:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "PhotoGeoTagger/GUI/photoTags/VWWPhotoTagsViewController.m"
+         timestampString = "388138190.775928"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "168"
+         endingLineNumber = "168"
          landmarkName = "-tableView:viewForTableColumn:row:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "PhotoGeoTagger/GUI/photoTags/VWWPhotoTagsValueCell.m"
+         timestampString = "388134320.465316"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "14"
+         endingLineNumber = "14"
+         landmarkName = "-init"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "PhotoGeoTagger/GUI/photoTags/VWWPhotoTagsValueCell.m"
+         timestampString = "388134344.559885"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "22"
+         endingLineNumber = "22"
+         landmarkName = "-initWithCoder:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "PhotoGeoTagger/GUI/photoTags/VWWPhotoTagsTableViewCell.m"
+         timestampString = "388137002.271236"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "16"
+         endingLineNumber = "16"
+         landmarkName = "-initWithCoder:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
