@@ -302,10 +302,13 @@ typedef enum {
     NSInteger selectedRow = [self.tableView selectedRow];
     if (selectedRow != -1) {
         VWWContentItem  *item = self.contents[selectedRow];
-        if(item.isDirectory == NO){
+        if(item.isDirectory == YES){
+            [self.imageView setImage:nil];
+            [self.delegate fileViewController:self itemSelected:nil];
+        }
+        else{
             [self.imageView setImage:[[NSImage alloc]initWithContentsOfFile:item.path]];
             [self.delegate fileViewController:self itemSelected:item];
-            
         }
     }
 }

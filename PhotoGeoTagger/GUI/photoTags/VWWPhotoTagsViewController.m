@@ -71,53 +71,78 @@ static NSString* kPhotoTagsGPSKey = @"{GPS}";
         
         NSArray *keys = [d allKeys];
         
-        if([keys indexOfObject:kPhotoTagsEXIFKey] != NSNotFound){
+        if([keys indexOfObject:kPhotoTagsEXIFKey] == NSNotFound){
+            self.exifKeys = @[];
+            self.exifValues =  @[];
+        }
+        else{
             NSLog(@"EXIF found");
             self.exifKeys = [d[kPhotoTagsEXIFKey] allKeys];
             self.exifValues = [d[kPhotoTagsEXIFKey] allValues];
-            [self.exifTableView reloadData];
             [d removeObjectForKey:kPhotoTagsEXIFKey];
             self.tabIndex = 2;
         }
+        [self.exifTableView reloadData];
         
-        if([keys indexOfObject:kPhotoTagsJFIFKey] != NSNotFound){
+        if([keys indexOfObject:kPhotoTagsJFIFKey] == NSNotFound){
+            self.jfifKeys = @[];
+            self.jfifValues =  @[];
+        }
+        else{
             NSLog(@"JFIF found");
             self.jfifKeys = [d[kPhotoTagsJFIFKey] allKeys];
             self.jfifValues = [d[kPhotoTagsJFIFKey] allValues];
-            [self.jfifTableView reloadData];
             [d removeObjectForKey:kPhotoTagsJFIFKey];
             self.tabIndex = 4;
         }
+        [self.jfifTableView reloadData];
         
-        if([keys indexOfObject:kPhotoTagsTIFFKey] != NSNotFound){
+        if([keys indexOfObject:kPhotoTagsTIFFKey] == NSNotFound){
+            self.tiffKeys = @[];
+            self.tiffValues =  @[];
+        }
+        else{
             NSLog(@"TIFF found");
             self.tiffKeys = [d[kPhotoTagsTIFFKey] allKeys];
             self.tiffValues = [d[kPhotoTagsTIFFKey] allValues];
-            [self.tiffTableView reloadData];
             [d removeObjectForKey:kPhotoTagsTIFFKey];
             self.tabIndex = 3;
         }
+        [self.tiffTableView reloadData];
         
-        if([keys indexOfObject:kPhotoTagsGPSKey] != NSNotFound){
+        if([keys indexOfObject:kPhotoTagsGPSKey] == NSNotFound){
+            self.gpsKeys = @[];
+            self.gpsValues =  @[];
+        }
+        else{
             NSLog(@"GPS found");
             self.gpsKeys = [d[kPhotoTagsGPSKey] allKeys];
             self.gpsValues = [d[kPhotoTagsGPSKey] allValues];
-            [self.gpsTableView reloadData];
             [d removeObjectForKey:kPhotoTagsGPSKey];
             self.tabIndex = 1;
         }
+        [self.gpsTableView reloadData];
 
-        if([d allKeys].count){
+        if([d allKeys].count == 0){
+            self.generalKeys = @[];
+            self.generalValues =  @[];
+        }
+        else{
             NSLog(@"loading genera data");
             self.generalKeys = [d allKeys];
             self.generalValues = [d allValues];
-            [self.generalTableView reloadData];
             self.tabIndex = 0;
         }
+        [self.generalTableView reloadData];
         
-        self.textView.string = item.metaData.description;
-
-
+        
+        if(item.metaData.description == nil){
+            self.textView.string = @"";
+        }
+        else{
+            self.textView.string = item.metaData.description;
+        }
+        
     }
     
 //    // set tabView to a tab with content
@@ -211,13 +236,15 @@ static NSString* kPhotoTagsGPSKey = @"{GPS}";
 
     
     if([tableColumn.identifier isEqualToString:@"keyColumn"]){
-        cellView.textField.stringValue = keys[row];
+        if(row < keys.count){
+            cellView.textField.stringValue = keys[row];
+        }
         return cellView;
     }
     else if( [tableColumn.identifier isEqualToString:@"valueColumn"] ){
-        cellView.textField.stringValue = values[row];
-//        cellView.valuesArray = values;
-//        cellView.index = row;
+        if(row < values.count){
+            cellView.textField.stringValue = values[row];
+        }
         return cellView;
     }
     
