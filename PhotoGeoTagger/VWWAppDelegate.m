@@ -112,7 +112,8 @@
 
 #pragma mark Implements VWWFileViewControllerDelegate
 -(void)fileViewController:(VWWFileViewController*)sender itemSelected:(VWWContentItem*)item{
-    [self.exifViewController loadItem:item];
+//    [self.exifViewController loadItem:item];
+    self.exifViewController.item = item;
 }
 
 -(void)fileViewController:(VWWFileViewController*)sender setWindowTitle:(NSString*)title{

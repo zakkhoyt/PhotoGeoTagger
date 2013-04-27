@@ -15,5 +15,7 @@
 
 
 
--(void)loadItem:(VWWContentItem*)item;
+//-(void)loadItem:(VWWContentItem*)item;
+
+@property (nonatomic, strong) VWWContentItem *item;
 @end
