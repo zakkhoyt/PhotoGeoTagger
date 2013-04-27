@@ -40,6 +40,7 @@
     return [self hasDataWithTag:@"{Exif}"];
 }
 
+
 -(NSString *)description{
     return [NSString stringWithFormat:@"url=%@\n"
             "displayName=%@"

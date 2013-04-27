@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PhotoGeoTagger/GUI/files/VWWFileViewController.m"
-         timestampString = "388721351.247281"
+         timestampString = "388725514.885438"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "424"
-         endingLineNumber = "424"
+         startingLineNumber = "449"
+         endingLineNumber = "449"
          landmarkName = "-tableViewSelectionDidChange:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -177,11 +177,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PhotoGeoTagger/GUI/files/VWWFileViewController.m"
-         timestampString = "388721351.247281"
+         timestampString = "388725514.885438"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "292"
-         endingLineNumber = "292"
+         startingLineNumber = "316"
+         endingLineNumber = "316"
          landmarkName = "-hasGeneralDataCheckboxAction:"
          landmarkType = "5">
       </FileBreakpoint>

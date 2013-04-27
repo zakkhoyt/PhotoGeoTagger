@@ -142,7 +142,7 @@ typedef enum {
                 item.path = contentDetailsPath;
                 item.displayName = [contentDetailsPath lastPathComponent];
                 item.extension = [contentDetailsPath pathExtension];
-                item.metaData = [[self photoTagsFromFile:item.path] mutableCopy];
+                item.metaData = [[self readPhotoTagsFromFile:item.path] mutableCopy];
                 
                 if(self.filterType == VWWFileFilterTypeAll){
                     [self.contents addObject:item];
@@ -205,14 +205,14 @@ typedef enum {
 
 
 
-- (NSDictionary*)photoTagsFromFile:(NSString*)file{
+- (NSDictionary*)readPhotoTagsFromFile:(NSString*)file{
     NSDictionary* dic;
     NSURL* url =[NSURL fileURLWithPath:file];
     
     if(url){
         CGImageSourceRef source = CGImageSourceCreateWithURL((CFURLRef)CFBridgingRetain(url), NULL);
         
-        if(NULL == source){
+        if(source == NULL){
 #ifdef _DEBUG
             CGImageSourceStatus status = CGImageSourceGetStatus ( source );
             NSLog ( @"Error: file name : %@ - Status: %d", file, status );
@@ -235,6 +235,125 @@ typedef enum {
     
     return dic;
 }
+
+// See http://stackoverflow.com/questions/5125323/problem-setting-exif-data-for-an-image
+
+-(BOOL)writePhotoTagsToItem:(VWWContentItem*)item{
+    
+    
+////    NSData *jpeg = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer] ;
+//    NSData *jpeg;
+//    CGImageSourceRef source = CGImageSourceCreateWithData((CFDataRef)jpeg, NULL);
+//    
+//    //get all the metadata in the image
+//    NSDictionary *metadata = (NSDictionary *) CGImageSourceCopyPropertiesAtIndex(source,0,NULL);
+//    
+//    //make the metadata dictionary mutable so we can add properties to it
+//    NSMutableDictionary *metadataAsMutable = [[metadata mutableCopy]autorelease];
+//    [metadata release];
+    
+//    NSMutableDictionary *EXIFDictionary = [[[metadataAsMutable objectForKey:(NSString *)kCGImagePropertyExifDictionary]mutableCopy]autorelease];
+//    NSMutableDictionary *GPSDictionary = [[[metadataAsMutable objectForKey:(NSString *)kCGImagePropertyGPSDictionary]mutableCopy]autorelease];
+//    if(!EXIFDictionary) {
+//        //if the image does not have an EXIF dictionary (not all images do), then create one for us to use
+//        EXIFDictionary = [NSMutableDictionary dictionary];
+//    }
+//    if(!GPSDictionary) {
+//        GPSDictionary = [NSMutableDictionary dictionary];
+//    }
+//    
+//    //Setup GPS dict
+    
+    
+//    [GPSDictionary setValue:[NSNumber numberWithFloat:_lat] forKey:(NSString*)kCGImagePropertyGPSLatitude];
+//    [GPSDictionary setValue:[NSNumber numberWithFloat:_lon] forKey:(NSString*)kCGImagePropertyGPSLongitude];
+//    [GPSDictionary setValue:lat_ref forKey:(NSString*)kCGImagePropertyGPSLatitudeRef];
+//    [GPSDictionary setValue:lon_ref forKey:(NSString*)kCGImagePropertyGPSLongitudeRef];
+//    [GPSDictionary setValue:[NSNumber numberWithFloat:_alt] forKey:(NSString*)kCGImagePropertyGPSAltitude];
+//    [GPSDictionary setValue:[NSNumber numberWithShort:alt_ref] forKey:(NSString*)kCGImagePropertyGPSAltitudeRef];
+//    [GPSDictionary setValue:[NSNumber numberWithFloat:_heading] forKey:(NSString*)kCGImagePropertyGPSImgDirection];
+//    [GPSDictionary setValue:[NSString stringWithFormat:@"%c",_headingRef] forKey:(NSString*)kCGImagePropertyGPSImgDirectionRef];
+//    
+//    [EXIFDictionary setValue:xml forKey:(NSString *)kCGImagePropertyExifUserComment];
+//    
+//    //add our modified EXIF data back into the image’s metadata
+//    [metadataAsMutable setObject:EXIFDictionary forKey:(NSString *)kCGImagePropertyExifDictionary];
+//    [metadataAsMutable setObject:GPSDictionary forKey:(NSString *)kCGImagePropertyGPSDictionary];
+//    
+//    CFStringRef UTI = CGImageSourceGetType(source); //this is the type of image (e.g., public.jpeg)
+//    
+//    //this will be the data CGImageDestinationRef will write into
+//    NSMutableData *dest_data = [NSMutableData data];
+//    
+//    CGImageDestinationRef destination = CGImageDestinationCreateWithData((CFMutableDataRef)dest_data,UTI,1,NULL);
+//    
+//    if(!destination) {
+//        NSLog(@"***Could not create image destination ***");
+//    }
+//    
+//    //add the image contained in the image source to the destination, overidding the old metadata with our modified metadata
+//    CGImageDestinationAddImageFromSource(destination,source,0, (CFDictionaryRef) metadataAsMutable);
+//    
+//    //tell the destination to write the image data and metadata into our data object.
+//    //It will return false if something goes wrong
+//    BOOL success = NO;
+//    success = CGImageDestinationFinalize(destination);
+//    
+//    if(!success) {
+//        NSLog(@"***Could not create data from image destination ***");
+//    }
+//    
+//    //now we have the data ready to go, so do whatever you want with it
+//    //here we just write it to disk at the same path we were passed
+//    [dest_data writeToFile:file atomically:YES];
+//    
+//    //cleanup
+//    
+//    CFRelease(destination);
+//    CFRelease(source);
+
+}
+
+
+//
+//-(void)saveJPEGImage:(CGImageRef)imageRef path:(NSString *)path {
+//	CFMutableDictionaryRef mSaveMetaAndOpts = CFDictionaryCreateMutable(nil, 0,
+//                                                                        &kCFTypeDictionaryKeyCallBacks,  &kCFTypeDictionaryValueCallBacks);
+//	CFDictionarySetValue(mSaveMetaAndOpts, kCGImageDestinationLossyCompressionQuality,
+//						 [NSNumber numberWithFloat:1.0]);	// set the compression quality here
+//	NSURL *outURL = [[NSURL alloc] initFileURLWithPath:path];
+//	CGImageDestinationRef dr = CGImageDestinationCreateWithURL ((CFURLRef)outURL, (CFStringRef)@"public.jpeg" , 1, NULL);
+//	CGImageDestinationAddImage(dr, imageRef, mSaveMetaAndOpts);
+//	CGImageDestinationFinalize(dr);
+//}
+//
+//
+//-(void)savePNGImage:(CGImageRef)imageRef path:(NSString *)path {
+//	NSURL *outURL = [[NSURL alloc] initFileURLWithPath:path];
+//	CGImageDestinationRef dr = CGImageDestinationCreateWithURL ((CFURLRef)outURL, (CFStringRef)@"public.png" , 1, NULL);
+//	CGImageDestinationAddImage(dr, imageRef, NULL);
+//	CGImageDestinationFinalize(dr);
+//}
+//
+//-(void)saveTIFFImage:(CGImageRef)imageRef path:(NSString *)path {
+//	int compression = NSTIFFCompressionLZW;  // non-lossy LZW compression
+//	CFMutableDictionaryRef mSaveMetaAndOpts = CFDictionaryCreateMutable(nil, 0,
+//																		&kCFTypeDictionaryKeyCallBacks,  &kCFTypeDictionaryValueCallBacks);
+//	CFMutableDictionaryRef tiffProfsMut = CFDictionaryCreateMutable(nil, 0,
+//																	&kCFTypeDictionaryKeyCallBacks,  &kCFTypeDictionaryValueCallBacks);
+//	CFDictionarySetValue(tiffProfsMut, kCGImagePropertyTIFFCompression, CFNumberCreate(NULL, kCFNumberIntType, &compression));
+//	CFDictionarySetValue(mSaveMetaAndOpts, kCGImagePropertyTIFFDictionary, tiffProfsMut);
+//    
+//	NSURL *outURL = [[NSURL alloc] initFileURLWithPath:path];
+//	CGImageDestinationRef dr = CGImageDestinationCreateWithURL ((CFURLRef)outURL, (CFStringRef)@"public.tiff" , 1, NULL);
+//	CGImageDestinationAddImage(dr, imageRef, mSaveMetaAndOpts);
+//	CGImageDestinationFinalize(dr);
+//}
+//
+//
+
+
+
 
 -(void)updateCheckboxes:(BOOL)enable{
     [self.hasGeneralDataButton setEnabled:enable];
@@ -268,8 +387,32 @@ typedef enum {
 }
 
 -(void)assignCoordinateToSelectedFiles:(CLLocationCoordinate2D)location{
-    NSLog(@"TODO: Assing location to selected files %f %f", location.latitude, location.longitude);
+    NSLog(@"TODO: Assing location to %f %f to items:", location.latitude, location.longitude);
+    
+    for(VWWContentItem *item in self.selectedItems){
+        NSLog(@"%@", item.path);
+    }
+
 }
+
+//
+//-(void)iterateItems{
+//}
+//
+//
+//
+//
+//-(BOOL)writeCoordinate:(CLLocationCoordinate2D)location toItem:(VWWContentItem*)item{
+//    for(NSInteger index = 0; index < self.selectedItems.count; index++){
+//        VWWContentItem *item = self.selectedItems[index];
+//        if(item.isDirectory){
+//            // This is a directory. Grind through it recursively
+//        }
+//        else{
+//            // This is an image file. Just write the tag
+//        }
+//    }
+//}
 
 
 #pragma mark IBActions
@@ -334,22 +477,19 @@ typedef enum {
  }
 
 - (IBAction)tableViewAction:(id)sender {
-
-//    NSInteger selectedRow = [self.tableView selectedRow];
-//    if (selectedRow != -1) {
-//        VWWContentItem  *item = self.contents[selectedRow];
-////        NSDictionary *photoTags = [self photoTagsFromFile:item.path];
-////        if(photoTags){
-////            NSLog(@"photoTags=%@" ,photoTags);
-////            item.metaData = [photoTags mutableCopy];
-//            [self.imageView setImage:[[NSImage alloc]initWithContentsOfFile:item.path]];
-//            [self.delegate fileViewController:self itemSelected:item];
-////        }
-//    }
-    
     NSIndexSet *selectedRows = [self.tableView selectedRowIndexes];
-    
-    
+    [self.selectedItems removeAllObjects];
+    NSMutableArray *indexes = [@[]mutableCopy];
+    [selectedRows indexesPassingTest:^BOOL(NSUInteger idx, BOOL *stop) {
+        [indexes addObject:@(idx)];
+        return YES;
+    }];
+
+    for(NSInteger index = 0; index < indexes.count; index++){
+        NSInteger i = ((NSNumber*)indexes[index]).integerValue;
+        VWWContentItem *item = self.contents[i];
+        [self.selectedItems addObject:item];
+    }
 }
 
 -(void)tableViewDoubleAction:(id)sender{
@@ -436,8 +576,6 @@ typedef enum {
             [self.imageView setImage:[[NSImage alloc]initWithContentsOfFile:item.path]];
             [self.delegate fileViewController:self itemSelected:item];
         }
-        
-        NSLog(@"Adding %@ to selectedItems", item.path);
     }
 }
 
