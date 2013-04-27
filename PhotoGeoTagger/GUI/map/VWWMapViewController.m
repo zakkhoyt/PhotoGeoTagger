@@ -9,7 +9,7 @@
 
 #import "VWWMapViewController.h"
 #import <MapKit/MapKit.h>
-#import <CoreLocation/CoreLocation.h>
+
 
 @interface VWWMapViewController () <NSTextFieldDelegate, CLLocationManagerDelegate, MKMapViewDelegate>
 
@@ -103,6 +103,11 @@
 
 }
 
+- (IBAction)assignLocationButtonAction:(id)sender {
+    CLLocationCoordinate2D centerCoordinate = [self.mapView centerCoordinate];
+    
+    [self.delegate mapViewController:self assignLocation:centerCoordinate];
+}
 
 
 

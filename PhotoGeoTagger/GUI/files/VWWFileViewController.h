@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <CoreLocation/CoreLocation.h>
 
 
 @class VWWContentItem;
@@ -20,4 +21,5 @@
 @interface VWWFileViewController : NSViewController
 @property (weak) id <VWWFileViewControllerDelegate> delegate;
 -(void)seachForFilesInDirectory:(NSString*)path;
+-(void)assignCoordinateToSelectedFiles:(CLLocationCoordinate2D)location;
 @end

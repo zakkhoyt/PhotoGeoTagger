@@ -8,6 +8,8 @@
 
 #import "VWWContentItem.h"
 
+
+
 @implementation VWWContentItem
 
 -(BOOL)hasDataWithTag:(NSString*)tag{
@@ -20,6 +22,8 @@
     return NO;
 }
 
+// TODO: These strings are already declared as keys elsewhere in the app.
+// Let's reuse them.
 -(BOOL)hasGeneralData{
     return (BOOL)([self.metaData allKeys].count);
 }
@@ -33,7 +37,7 @@
     return [self hasDataWithTag:@"{TIFF}"];
 }
 -(BOOL)hasEXIFData{
-    return [self hasDataWithTag:@"{EXIF}"];
+    return [self hasDataWithTag:@"{Exif}"];
 }
 
 -(NSString *)description{

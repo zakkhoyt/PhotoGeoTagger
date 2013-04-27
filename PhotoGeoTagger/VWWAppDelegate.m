@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Zakk Hoyt. All rights reserved.
 //
 
+#import <CoreLocation/CoreLocation.h>
+
 #import "VWWAppDelegate.h"
 #import "VWWMapViewController.h"
 #import "VWWFileViewController.h"
@@ -14,10 +16,10 @@
 #import "VWWAboutWindowController.h"
 
 
-@interface VWWAppDelegate () <VWWFileViewControllerDelegate, NSWindowDelegate>
-@property (strong) IBOutlet VWWMapViewController *mapViewController;
-@property (strong) IBOutlet VWWFileViewController *fileViewController;
-@property (strong) IBOutlet VWWPhotoTagsViewController *exifViewController;
+@interface VWWAppDelegate () <VWWFileViewControllerDelegate, NSWindowDelegate, VWWMapViewControllerDelegate>
+@property (strong) VWWMapViewController *mapViewController;
+@property (strong) VWWFileViewController *fileViewController;
+@property (strong) VWWPhotoTagsViewController *exifViewController;
 @property (strong) VWWHelpWindowController *helpWindowController;
 @property (strong) VWWAboutWindowController *aboutWindowController;
 @end
@@ -47,6 +49,7 @@
     [self.fileViewController seachForFilesInDirectory:picturesDirectory];
   
     self.mapViewController = [[VWWMapViewController alloc]initWithNibName:@"VWWMapViewController" bundle:nil];
+    self.mapViewController.delegate = self;
     [self.window.contentView addSubview:self.mapViewController.view];
     self.mapViewController.view.frame = [self topRight];
 
@@ -114,6 +117,12 @@
 
 -(void)fileViewController:(VWWFileViewController*)sender setWindowTitle:(NSString*)title{
     [[self window] setTitle:title];
+}
+
+
+#pragma mark Implements VWWMapViewControllerDelegate
+-(void)mapViewController:(VWWMapViewController*)sender assignLocation:(CLLocationCoordinate2D)location{
+    [self.fileViewController assignCoordinateToSelectedFiles:location];
 }
 
 #pragma mark Impelments NSWindowDelegate

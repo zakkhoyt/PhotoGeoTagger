@@ -55,6 +55,8 @@ typedef enum {
 @property (strong) IBOutlet NSButton *hasJFIFDataButton;
 @property (strong) IBOutlet NSButton *hasTIFFDataButton;
 
+@property (strong) NSMutableArray *selectedItems;
+
 
 @end
 
@@ -76,36 +78,18 @@ typedef enum {
     self.fileTagFilterType = VWWFileTagFilterTypeAll;
     self.progressViewCALayer = [CALayer layer];
     [self.progressViewCALayer setBackgroundColor:CGColorCreateGenericRGB(0.0, 0.0, 0.0, 0.5)];
-    [self.progressView setWantsLayer:YES]; 
+    [self.progressView setWantsLayer:YES];
 
     
     _filesQueue = dispatch_queue_create("com.vaporwarewolf.photogeotagger.files", NULL);
     [_tableView setDoubleAction:@selector(tableViewDoubleAction:)];
-    
+    _selectedItems = [@[]mutableCopy];
     
 }
 
 
 
--(void)seachForFilesInDirectory:(NSString*)path{
-    
-    self.progressIndicator.backgroundFilters = nil;
-    [self.progressIndicator startAnimation:self];
-    [self.progressView setLayer:self.progressViewCALayer];
-    
-    
-    self.contents = [@[]mutableCopy];
-    [self getDirectoryAtPath:path completion:^{
-        [self.delegate fileViewController:self setWindowTitle:path];
-        [self.tableView reloadData];
-        
-        // Store for later incase we need to up one dir.
-        self.currentDirectory = path;
-        [self.progressIndicator stopAnimation:self];
-        [self.progressView setLayer:nil];
-    }];
 
-}
 
 -(void)getDirectoryAtPath:(NSString*)path completion:(VWWSuccessBlock)completion{
     
@@ -175,6 +159,40 @@ typedef enum {
                         [self.contents addObject:item];
                     }
                 }
+                else if(self.filterType == VWWFileFilterTypeCustom){
+                    // If checkbos is set, ensure file has that type of tag
+                    // TODO: This code can be shortened
+                    BOOL hasRequiredTags = YES;
+                    if((self.fileTagFilterType & VWWFileTagFilterTypeHasGeneral) == VWWFileTagFilterTypeHasGeneral){
+                        if([item hasGeneralData] == NO){
+                            hasRequiredTags = NO;
+                        }
+                    }
+                    if((self.fileTagFilterType & VWWFileTagFilterTypeHasGPS) == VWWFileTagFilterTypeHasGPS){
+                        if([item hasGPSData] == NO){
+                            hasRequiredTags = NO;
+                        }
+                    }
+                    if((self.fileTagFilterType & VWWFileTagFilterTypeHasEXIF) == VWWFileTagFilterTypeHasEXIF){
+                        if([item hasEXIFData] == NO){
+                            hasRequiredTags = NO;
+                        }
+                    }
+                    if((self.fileTagFilterType & VWWFileTagFilterTypeHasTIFF) == VWWFileTagFilterTypeHasTIFF){
+                        if([item hasTIFFData] == NO){
+                            hasRequiredTags = NO;
+                        }
+                    }
+                    if((self.fileTagFilterType & VWWFileTagFilterTypeHasJFIF) == VWWFileTagFilterTypeHasJFIF){
+                        if([item hasJFIFData] == NO){
+                            hasRequiredTags = NO;
+                        }
+                    }
+                    
+                    if(hasRequiredTags == YES){
+                        [self.contents addObject:item];
+                    }
+                }
 
             }
         }
@@ -225,6 +243,34 @@ typedef enum {
     [self.hasTIFFDataButton setEnabled:enable];
     [self.hasJFIFDataButton setEnabled:enable];
 }
+
+
+#pragma mark Public Methods
+
+-(void)seachForFilesInDirectory:(NSString*)path{
+    
+    self.progressIndicator.backgroundFilters = nil;
+    [self.progressIndicator startAnimation:self];
+    [self.progressView setLayer:self.progressViewCALayer];
+    
+    
+    self.contents = [@[]mutableCopy];
+    [self getDirectoryAtPath:path completion:^{
+        [self.delegate fileViewController:self setWindowTitle:path];
+        [self.tableView reloadData];
+        
+        // Store for later incase we need to up one dir.
+        self.currentDirectory = path;
+        [self.progressIndicator stopAnimation:self];
+        [self.progressView setLayer:nil];
+    }];
+    
+}
+
+-(void)assignCoordinateToSelectedFiles:(CLLocationCoordinate2D)location{
+    NSLog(@"TODO: Assing location to selected files %f %f", location.latitude, location.longitude);
+}
+
 
 #pragma mark IBActions
 
@@ -287,8 +333,8 @@ typedef enum {
     }];
  }
 
-//- (IBAction)tableViewAction:(id)sender {
-//
+- (IBAction)tableViewAction:(id)sender {
+
 //    NSInteger selectedRow = [self.tableView selectedRow];
 //    if (selectedRow != -1) {
 //        VWWContentItem  *item = self.contents[selectedRow];
@@ -300,7 +346,11 @@ typedef enum {
 //            [self.delegate fileViewController:self itemSelected:item];
 ////        }
 //    }
-//}
+    
+    NSIndexSet *selectedRows = [self.tableView selectedRowIndexes];
+    
+    
+}
 
 -(void)tableViewDoubleAction:(id)sender{
     NSLog(@"%s", __FUNCTION__);
@@ -373,7 +423,7 @@ typedef enum {
 
 // Catch keyboard
 - (void)tableViewSelectionDidChange:(NSNotification *)aNotification{
-    NSLog(@"%s", __FUNCTION__   );
+//    NSLog(@"%s", __FUNCTION__);
     
     NSInteger selectedRow = [self.tableView selectedRow];
     if (selectedRow != -1) {
@@ -386,6 +436,8 @@ typedef enum {
             [self.imageView setImage:[[NSImage alloc]initWithContentsOfFile:item.path]];
             [self.delegate fileViewController:self itemSelected:item];
         }
+        
+        NSLog(@"Adding %@ to selectedItems", item.path);
     }
 }
 

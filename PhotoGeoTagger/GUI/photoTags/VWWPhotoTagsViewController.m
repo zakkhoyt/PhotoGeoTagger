@@ -22,8 +22,6 @@ static NSString* kPhotoTagsGPSKey = @"{GPS}";
 @property (strong) IBOutlet NSTableView *generalTableView;
 
 
-@property (strong) NSArray *gpsKeys;
-@property (strong) NSArray *gpsValues;
 @property (strong) IBOutlet NSTableView *gpsTableView;
 
 
@@ -76,7 +74,7 @@ static NSString* kPhotoTagsGPSKey = @"{GPS}";
             self.exifValues =  @[];
         }
         else{
-            NSLog(@"EXIF found");
+//            NSLog(@"EXIF found");
             self.exifKeys = [d[kPhotoTagsEXIFKey] allKeys];
             self.exifValues = [d[kPhotoTagsEXIFKey] allValues];
             [d removeObjectForKey:kPhotoTagsEXIFKey];
@@ -89,7 +87,7 @@ static NSString* kPhotoTagsGPSKey = @"{GPS}";
             self.jfifValues =  @[];
         }
         else{
-            NSLog(@"JFIF found");
+//            NSLog(@"JFIF found");
             self.jfifKeys = [d[kPhotoTagsJFIFKey] allKeys];
             self.jfifValues = [d[kPhotoTagsJFIFKey] allValues];
             [d removeObjectForKey:kPhotoTagsJFIFKey];
@@ -102,7 +100,7 @@ static NSString* kPhotoTagsGPSKey = @"{GPS}";
             self.tiffValues =  @[];
         }
         else{
-            NSLog(@"TIFF found");
+//            NSLog(@"TIFF found");
             self.tiffKeys = [d[kPhotoTagsTIFFKey] allKeys];
             self.tiffValues = [d[kPhotoTagsTIFFKey] allValues];
             [d removeObjectForKey:kPhotoTagsTIFFKey];
@@ -115,7 +113,7 @@ static NSString* kPhotoTagsGPSKey = @"{GPS}";
             self.gpsValues =  @[];
         }
         else{
-            NSLog(@"GPS found");
+//            NSLog(@"GPS found");
             self.gpsKeys = [d[kPhotoTagsGPSKey] allKeys];
             self.gpsValues = [d[kPhotoTagsGPSKey] allValues];
             [d removeObjectForKey:kPhotoTagsGPSKey];
@@ -128,7 +126,7 @@ static NSString* kPhotoTagsGPSKey = @"{GPS}";
             self.generalValues =  @[];
         }
         else{
-            NSLog(@"loading genera data");
+//            NSLog(@"loading genera data");
             self.generalKeys = [d allKeys];
             self.generalValues = [d allValues];
             self.tabIndex = 0;
@@ -136,12 +134,12 @@ static NSString* kPhotoTagsGPSKey = @"{GPS}";
         [self.generalTableView reloadData];
         
         
-        if(item.metaData.description == nil){
-            self.textView.string = @"";
-        }
-        else{
-            self.textView.string = item.metaData.description;
-        }
+//        if(item.metaData.description == nil){
+//            self.textView.string = @"";
+//        }
+//        else{
+//            self.textView.string = item.metaData.description;
+//        }
         
     }
     
@@ -152,6 +150,8 @@ static NSString* kPhotoTagsGPSKey = @"{GPS}";
     
 }
 
+
+#pragma mark IBActions
 
 - (IBAction)gpsValueTextFieldAction:(id)sender {
     NSInteger row = [self.gpsTableView rowForView:sender];
@@ -183,6 +183,7 @@ static NSString* kPhotoTagsGPSKey = @"{GPS}";
     NSTextField *valueTextField = (NSTextField*)sender;
     NSLog(@"jfif value row %ld = %@", row, valueTextField.stringValue);
 }
+
 
 
 
@@ -227,6 +228,9 @@ static NSString* kPhotoTagsGPSKey = @"{GPS}";
 //        }
 //        else if([item isKindOfClass:[NSString class]] == YES){
 //            NSLog(@"%@ is string", keys[index]);
+//        }
+//        else if([item isKindOfClass:[NSNumber class]] == YES){
+//            NSLog(@"%@ is number", keys[index]);
 //        }
 //        else{
 //            NSLog(@"%@ is other", keys[index]);

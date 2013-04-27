@@ -10,5 +10,10 @@
 @class VWWContentItem;
 
 @interface VWWPhotoTagsViewController : NSViewController
+@property (strong) NSArray *gpsKeys;
+@property (strong) NSArray *gpsValues;
+
+
+
 -(void)loadItem:(VWWContentItem*)item;
 @end
